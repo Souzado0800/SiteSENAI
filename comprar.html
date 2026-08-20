@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d0b" />
+  <meta name="description" content="Adquira Red Dead Redemption 2 para PC, PlayStation e Xbox com entrega digital instantânea." />
+  <title>Comprar Red Dead Redemption II — Loja Oficial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos específicos da página de compra */
+    .checkout-page {
+      background: #0d0b09;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .checkout-header {
+      padding: 24px 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      background: rgba(16, 13, 11, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .checkout-header .back-link {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .checkout-header .back-link:hover {
+      color: var(--red);
+    }
+    .checkout-hero {
+      padding: 60px 6vw 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(182,29,29,0.18) 0%, transparent 70%);
+    }
+    .checkout-hero span {
+      font-family: var(--typewriter);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      text-transform: uppercase;
+    }
+    .checkout-hero h1 {
+      font-family: var(--display);
+      font-size: clamp(48px, 7vw, 92px);
+      letter-spacing: -0.04em;
+      margin: 12px 0;
+      line-height: 0.9;
+    }
+    .checkout-hero p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .checkout-container {
+      max-width: 1400px;
+      width: 90%;
+      margin: 20px auto 80px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .step-card {
+      background: #14110e;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 32px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .step-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--display);
+      font-size: 26px;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 16px;
+    }
+    .step-title span {
+      display: inline-grid;
+      place-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-size: 13px;
+      font-family: var(--body);
+      font-weight: 700;
+    }
+
+    /* Cards de Edição */
+    .editions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .edition-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+    }
+    .edition-card:hover {
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.04);
+    }
+    .edition-card.selected {
+      border-color: var(--red);
+      background: rgba(182,29,29,0.08);
+      box-shadow: 0 0 25px rgba(182,29,29,0.2);
+    }
+    .edition-card .radio-mark {
+      width: 22px;
+      height: 22px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      transition: border-color 0.3s;
+    }
+    .edition-card.selected .radio-mark {
+      border-color: var(--red);
+    }
+    .edition-card.selected .radio-mark::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: var(--red);
+      border-radius: 50%;
+    }
+    .edition-info h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .edition-info p {
+      margin: 0;
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    .edition-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: var(--red);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 3px 10px;
+      text-transform: uppercase;
+    }
+    .edition-price {
+      text-align: right;
+    }
+    .edition-price .current {
+      font-family: var(--display);
+      font-size: 32px;
+      color: #fff;
+      display: block;
+      line-height: 1;
+    }
+    .edition-price .installments {
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Plataformas */
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .platform-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .platform-card:hover {
+      border-color: rgba(255,255,255,0.4);
+    }
+    .platform-card.selected {
+      border-color: var(--red);
+      background: rgba(182,29,29,0.12);
+    }
+    .platform-card strong {
+      display: block;
+      font-family: var(--display);
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .platform-card span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Métodos de Pagamento */
+    .payments-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+    }
+    .payment-option {
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 16px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.02);
+      text-align: center;
+      transition: 0.3s;
+    }
+    .payment-option:hover {
+      border-color: rgba(255,255,255,0.3);
+    }
+    .payment-option.selected {
+      border-color: var(--red);
+      background: rgba(182,29,29,0.1);
+    }
+    .payment-option strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .payment-option small {
+      color: rgba(255,255,255,0.5);
+      font-size: 10px;
+    }
+    .pix-tag {
+      color: #2bd880;
+      font-weight: 700;
+    }
+
+    /* Resumo Lateral */
+    .checkout-summary {
+      background: #14110e;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 32px;
+      position: sticky;
+      top: 100px;
+    }
+    .summary-cover {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+    }
+    .summary-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.1);
+    }
+    .summary-details dl {
+      margin: 20px 0;
+    }
+    .summary-details dl div {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      font-size: 12px;
+    }
+    .summary-details dt {
+      color: rgba(255,255,255,0.5);
+    }
+    .summary-details dd {
+      margin: 0;
+      font-weight: 600;
+    }
+    .summary-bonuses {
+      margin: 20px 0;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border-left: 2px solid var(--red);
+      font-size: 11px;
+    }
+    .summary-bonuses strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .summary-bonuses ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .coupon-box {
+      display: flex;
+      gap: 8px;
+      margin: 20px 0;
+    }
+    .coupon-box input {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .coupon-box button {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      padding: 0 16px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .coupon-box button:hover {
+      background: var(--red);
+    }
+
+    .summary-total {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .summary-total span {
+      font-family: var(--typewriter);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.6);
+    }
+    .summary-total strong {
+      font-family: var(--display);
+      font-size: 46px;
+      color: var(--red);
+      line-height: 0.9;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 18px;
+      margin-top: 24px;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .checkout-btn:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .security-badges {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+      font-size: 9px;
+      color: rgba(255,255,255,0.4);
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Modal de Sucesso */
+    .success-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    .success-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .success-box {
+      background: #14110e;
+      border: 1px solid var(--red);
+      max-width: 520px;
+      width: 100%;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+      position: relative;
+    }
+    .success-box h2 {
+      font-family: var(--display);
+      font-size: 42px;
+      margin: 10px 0;
+      letter-spacing: -0.02em;
+    }
+    .key-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px dashed rgba(255,255,255,0.25);
+      padding: 14px;
+      margin: 20px 0;
+      font-family: monospace;
+      font-size: 16px;
+      color: #efc6b9;
+      letter-spacing: 0.15em;
+    }
+
+    /* Requisitos do Sistema */
+    .specs-section {
+      max-width: 1400px;
+      width: 90%;
+      margin: 40px auto 80px;
+      background: #14110e;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 40px;
+    }
+    .specs-section h2 {
+      font-family: var(--display);
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .specs-col h3 {
+      font-size: 16px;
+      color: var(--red);
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 8px;
+    }
+    .specs-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+    }
+
+    @media (max-width: 980px) {
+      .checkout-container {
+        grid-template-columns: 1fr;
+      }
+      .checkout-summary {
+        position: static;
+      }
+      .specs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="checkout-page">
+  <header class="checkout-header">
+    <a href="index.html" class="brand" aria-label="1899 Creative — Voltar ao Hotsite Principal">
+      <div class="brand__placeholder">
+        <div class="brand__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L14.4 7.6L20.4 8.2L15.9 12.3L17.2 18.2L12 15.1L6.8 18.2L8.1 12.3L3.6 8.2L9.6 7.6L12 2Z"/>
+          </svg>
+        </div>
+        <div class="brand__text">
+          <span class="brand__tag">CREATIVE STUDIO</span>
+          <strong class="brand__name">1899 <span>CREATIVE</span></strong>
+        </div>
+      </div>
+    </a>
+    <a href="index.html" class="back-link">
+      <span>← Voltar ao Hotsite Principal</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="checkout-hero">
+      <span>LOJA OFICIAL DA ROCKSTAR GAMES</span>
+      <h1>ADQUIRA RED DEAD REDEMPTION II</h1>
+      <p>Escolha sua edição definitiva, sua plataforma preferida e receba acesso digital instantâneo a uma das maiores obras-primas da história dos videogames.</p>
+    </section>
+
+    <div class="checkout-container">
+      <!-- Coluna Principal de Seleção -->
+      <div class="checkout-main">
+        <!-- Passo 1: Edição -->
+        <div class="step-card">
+          <div class="step-title">
+            <span>1</span>
+            Escolha sua Edição
+          </div>
+          <div class="editions-list">
+            <div class="edition-card" data-edition="standard" data-price="299.90" data-name="Edição Padrão">
+              <div class="radio-mark"></div>
+              <div class="edition-info">
+                <h3>Edição Padrão</h3>
+                <p>História completa de Arthur Morgan + Acesso total ao Red Dead Online.</p>
+              </div>
+              <div class="edition-price">
+                <span class="current">R$ 299,90</span>
+                <span class="installments">ou até 6x de R$ 49,98</span>
+              </div>
+            </div>
+
+            <div class="edition-card" data-edition="special" data-price="349.90" data-name="Edição Especial">
+              <span class="edition-badge">Bônus Modo História</span>
+              <div class="radio-mark"></div>
+              <div class="edition-info">
+                <h3>Edição Especial</h3>
+                <p>Jogo Completo + Missão Exclusiva de Roubo a Banco + Esconderijo de Gangue + Puro-Sangue Inglês + Traje Pistoleiro de Nuevo Paraíso + Bônus de Dinheiro.</p>
+              </div>
+              <div class="edition-price">
+                <span class="current">R$ 349,90</span>
+                <span class="installments">ou até 6x de R$ 58,31</span>
+              </div>
+            </div>
+
+            <div class="edition-card selected" data-edition="ultimate" data-price="399.90" data-name="Edição Ultimate">
+              <span class="edition-badge">Mais Escolhida</span>
+              <div class="radio-mark"></div>
+              <div class="edition-info">
+                <h3>Edição Ultimate</h3>
+                <p>Tudo da Edição Especial + Bônus exclusivos do Red Dead Online (Trajes, Cavalos Black Dapple, Tema de Acampamento e Bônus de Ranque).</p>
+              </div>
+              <div class="edition-price">
+                <span class="current">R$ 399,90</span>
+                <span class="installments">ou até 6x de R$ 66,65</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 2: Plataforma -->
+        <div class="step-card">
+          <div class="step-title">
+            <span>2</span>
+            Selecione a Plataforma
+          </div>
+          <div class="platforms-grid">
+            <div class="platform-card selected" data-platform="PC (Rockstar / Steam)">
+              <strong>PC</strong>
+              <span>Rockstar Launcher / Steam Key</span>
+            </div>
+            <div class="platform-card" data-platform="PlayStation 5 / PS4">
+              <strong>PLAYSTATION</strong>
+              <span>PS5 & PS4 Digital Code</span>
+            </div>
+            <div class="platform-card" data-platform="Xbox Series X|S / One">
+              <strong>XBOX</strong>
+              <span>Xbox Series X|S & One Code</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 3: Pagamento -->
+        <div class="step-card">
+          <div class="step-title">
+            <span>3</span>
+            Forma de Pagamento
+          </div>
+          <div class="payments-list">
+            <div class="payment-option selected" data-payment="pix">
+              <strong>PIX</strong>
+              <small class="pix-tag">5% OFF • Imediato</small>
+            </div>
+            <div class="payment-option" data-payment="card">
+              <strong>Cartão de Crédito</strong>
+              <small>Em até 12x sem juros</small>
+            </div>
+            <div class="payment-option" data-payment="boleto">
+              <strong>Boleto Bancário</strong>
+              <small>Compensação em 24h</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Lateral de Resumo -->
+      <aside class="checkout-summary">
+        <div class="summary-cover">
+          <img 
+            id="summaryCoverImg" 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/9/9c/Rdr2_rdr2_3840x2160.jpg/revision/latest" 
+            alt="Red Dead Redemption 2 Cover" 
+            loading="eager" 
+            decoding="async" 
+            width="3840" 
+            height="2160" 
+          />
+        </div>
+
+        <div class="summary-details">
+          <dl>
+            <div>
+              <dt>Produto</dt>
+              <dd id="sumProduct">Red Dead Redemption 2</dd>
+            </div>
+            <div>
+              <dt>Edição</dt>
+              <dd id="sumEdition">Edição Ultimate</dd>
+            </div>
+            <div>
+              <dt>Plataforma</dt>
+              <dd id="sumPlatform">PC (Rockstar / Steam)</dd>
+            </div>
+            <div>
+              <dt>Formato</dt>
+              <dd>Chave Digital / Envio Imediato</dd>
+            </div>
+          </dl>
+
+          <div class="summary-bonuses" id="sumBonuses">
+            <strong>Incluso nesta edição:</strong>
+            <ul>
+              <li>Jogo Completo (Modo História + Red Dead Online)</li>
+              <li>Missão de Roubo a Banco & Esconderijo de Gangue</li>
+              <li>Puro-Sangue Inglês Dapple Black</li>
+              <li>Traje Pistoleiro de Nuevo Paraíso</li>
+              <li>Bônus de Dinheiro e Descontos no Modo História</li>
+              <li>Trajes e Bônus de Ranque no Red Dead Online</li>
+            </ul>
+          </div>
+
+          <div class="coupon-box">
+            <input type="text" id="couponInput" placeholder="CUPOM DE DESCONTO" value="RDR2BRASIL" />
+            <button id="applyCouponBtn">APLICAR</button>
+          </div>
+
+          <div class="summary-total">
+            <div>
+              <span>TOTAL A PAGAR</span>
+              <div id="discountNotice" style="color:#2bd880; font-size:10px; margin-top:2px;">5% de Desconto Pix Aplicado</div>
+            </div>
+            <strong id="sumPrice">R$ 379,90</strong>
+          </div>
+
+          <button class="checkout-btn" id="finishOrderBtn">
+            <span>FINALIZAR PEDIDO</span>
+            <i>➔</i>
+          </button>
+
+          <div class="security-badges">
+            <div>🔒 100% Criptografado</div>
+            <div>⚡ Envio Imediato</div>
+            <div>🎮 Chave Oficial</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Requisitos do Sistema -->
+    <section class="specs-section">
+      <h2>REQUISITOS DE SISTEMA PARA PC</h2>
+      <div class="specs-grid">
+        <div class="specs-col">
+          <h3>Requisitos Mínimos</h3>
+          <ul>
+            <li><strong>SO:</strong> Windows 10 - April 2018 Update (v1803)</li>
+            <li><strong>Processador:</strong> Intel Core i5-2500K / AMD FX-6300</li>
+            <li><strong>Memória:</strong> 8 GB de RAM</li>
+            <li><strong>Placa de Vídeo:</strong> Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB</li>
+            <li><strong>Armazenamento:</strong> 150 GB de espaço disponível</li>
+          </ul>
+        </div>
+        <div class="specs-col">
+          <h3>Requisitos Recomendados</h3>
+          <ul>
+            <li><strong>SO:</strong> Windows 10 / Windows 11 (64-bit)</li>
+            <li><strong>Processador:</strong> Intel Core i7-4770K / AMD Ryzen 5 1500X</li>
+            <li><strong>Memória:</strong> 16 GB de RAM</li>
+            <li><strong>Placa de Vídeo:</strong> Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB</li>
+            <li><strong>Armazenamento:</strong> 150 GB de espaço disponível em SSD</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Confirmação -->
+  <div class="success-modal" id="successModal">
+    <div class="success-box">
+      <span style="font-size:36px; color:#2bd880;">✔</span>
+      <h2>PEDIDO GERADO COM SUCESSO!</h2>
+      <p style="color:rgba(255,255,255,0.7); font-size:13px;">Sua chave de ativação foi reservada. Realize o pagamento para desbloquear seu download imediato.</p>
+      
+      <div class="key-box">
+        CHAVE: <strong>RDR2-BR99-VLND-1899-OUTLAW</strong>
+      </div>
+
+      <p style="font-size:11px; color:rgba(255,255,255,0.5);">Esta é uma demonstração conceitual da interface de checkout para Red Dead Redemption 2.</p>
+      <button class="checkout-btn" style="margin-top:20px;" id="closeModalBtn">FECHAR</button>
+    </div>
+  </div>
+
+  <footer class="footer" style="padding-top:40px;">
+    <div class="footer__bottom" style="padding-top:0;">
+      <div>
+        <span class="footer__label">LOJA</span>
+        <a href="index.html">Hotsite Principal</a>
+        <a href="comprar.html">Edições</a>
+        <a href="https://support.rockstargames.com" target="_blank" rel="noopener noreferrer">Suporte</a>
+      </div>
+      <div>
+        <span class="footer__label">REDES SOCIAIS</span>
+        <a href="https://www.youtube.com/rockstargames" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://twitter.com/rockstargames" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      </div>
+      <div class="footer__legal">
+        <p>© Rockstar Games, Inc. Red Dead Redemption 2 e todas as marcas associadas são propriedades da Take-Two Interactive Software.</p>
+      </div>
+      <div class="footer__year">1899<br><span>→</span><br>∞</div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const state = {
+        edition: "ultimate",
+        editionName: "Edição Ultimate",
+        basePrice: 399.90,
+        platform: "PC (Rockstar / Steam)",
+        payment: "pix",
+        discount: 0.05
+      };
+
+      const editionCards = document.querySelectorAll(".edition-card");
+      const platformCards = document.querySelectorAll(".platform-card");
+      const paymentOptions = document.querySelectorAll(".payment-option");
+
+      const sumEdition = document.getElementById("sumEdition");
+      const sumPlatform = document.getElementById("sumPlatform");
+      const sumPrice = document.getElementById("sumPrice");
+      const sumBonuses = document.getElementById("sumBonuses");
+      const discountNotice = document.getElementById("discountNotice");
+
+      const bonusesMap = {
+        standard: [
+          "Jogo Completo (Modo História + Red Dead Online)",
+          "Acesso a todos os modos e conteúdos do mundo aberto",
+          "Atualizações gratuitas do Red Dead Online"
+        ],
+        special: [
+          "Jogo Completo (Modo História + Red Dead Online)",
+          "Missão de Roubo a Banco no Modo História",
+          "Esconderijo de Gangue em Rhodes",
+          "Puro-Sangue Inglês Preto Dapple",
+          "Traje Pistoleiro de Nuevo Paraíso",
+          "Amuleto e Talismã com Vantagens em Jogo"
+        ],
+        ultimate: [
+          "Todos os conteúdos da Edição Especial inclusos",
+          "Trajes Exclusivos para o Red Dead Online (Galloway)",
+          "Cavalo Puro-Sangue Inglês Dapple Black no Online",
+          "Acesso Gratuito ao Tema do Acampamento Sobrevivente",
+          "Acesso Gratuito a Armas Adicionais",
+          "Bônus de Ranque até o nível 25 no Online"
+        ]
+      };
+
+      const updateSummary = () => {
+        sumEdition.textContent = state.editionName;
+        sumPlatform.textContent = state.platform;
+
+        const isPix = state.payment === "pix";
+        state.discount = isPix ? 0.05 : 0;
+        const finalPrice = state.basePrice * (1 - state.discount);
+
+        sumPrice.textContent = `R$ ${finalPrice.toFixed(2).replace(".", ",")}`;
+        discountNotice.textContent = isPix ? "5% de Desconto Pix Aplicado" : "Sem desconto adicional";
+        discountNotice.style.color = isPix ? "#2bd880" : "rgba(255,255,255,0.4)";
+
+        const bonuses = bonusesMap[state.edition] || [];
+        sumBonuses.innerHTML = `<strong>Incluso nesta edição:</strong><ul>${bonuses.map(b => `<li>${b}</li>`).join("")}</ul>`;
+      };
+
+      editionCards.forEach(card => {
+        card.addEventListener("click", () => {
+          editionCards.forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
+          state.edition = card.dataset.edition;
+          state.editionName = card.dataset.name;
+          state.basePrice = Number(card.dataset.price);
+          updateSummary();
+        });
+      });
+
+      platformCards.forEach(card => {
+        card.addEventListener("click", () => {
+          platformCards.forEach(c => c.classList.remove("selected"));
+          card.classList.add("selected");
+          state.platform = card.dataset.platform;
+          updateSummary();
+        });
+      });
+
+      paymentOptions.forEach(option => {
+        option.addEventListener("click", () => {
+          paymentOptions.forEach(o => o.classList.remove("selected"));
+          option.classList.add("selected");
+          state.payment = option.dataset.payment;
+          updateSummary();
+        });
+      });
+
+      const successModal = document.getElementById("successModal");
+      document.getElementById("finishOrderBtn")?.addEventListener("click", () => {
+        successModal.classList.add("is-open");
+      });
+      document.getElementById("closeModalBtn")?.addEventListener("click", () => {
+        successModal.classList.remove("is-open");
+      });
+      successModal?.addEventListener("click", e => {
+        if (e.target === successModal) successModal.classList.remove("is-open");
+      });
+
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d0b" />
+  <meta name="description" content="Experiência digital cinematográfica inspirada no universo épico de Red Dead Redemption 2." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" as="image" href="https://static.wikia.nocookie.net/reddeadredemption/images/9/9c/Rdr2_rdr2_3840x2160.jpg/revision/latest" fetchpriority="high" />
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor cursor--outer" aria-hidden="true"></div>
+  <div class="cursor cursor--inner" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <!-- LOGO / BRAND (1899 CREATIVE) -->
+    <a href="#hero" class="brand" aria-label="1899 Creative — Início">
+      <!-- 
+        ===================================================================
+        PLACEHOLDER TEMPORÁRIO / LOGO OFICIAL
+        Para utilizar a imagem oficial da logo futuramente:
+        1. Descomente a tag <img> abaixo e insira o caminho correto da imagem:
+           <img src="assets/logo.png" alt="1899 Creative" class="brand__img">
+        2. Remova ou comente o bloco .brand__placeholder.
+        ===================================================================
+      -->
+      <div class="brand__placeholder">
+        <div class="brand__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L14.4 7.6L20.4 8.2L15.9 12.3L17.2 18.2L12 15.1L6.8 18.2L8.1 12.3L3.6 8.2L9.6 7.6L12 2Z"/>
+          </svg>
+        </div>
+        <div class="brand__text">
+          <span class="brand__tag">CREATIVE STUDIO</span>
+          <strong class="brand__name">1899 <span>CREATIVE</span></strong>
+        </div>
+      </div>
+    </a>
+
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+      <a href="#hero">Início</a>
+      <a href="#story">Sobre</a>
+      <a href="#gallery">Galeria</a>
+      <a href="#trailer">Trailer</a>
+      <a href="#contato">Contato</a>
+      <a href="comprar.html" target="_blank" rel="noopener noreferrer" class="nav-buy">Comprar ↗</a>
+    </nav>
+
+    <!-- BOTÃO HAMBURGER MOBILE -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="siteNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__visual parallax-media" data-speed="0.12">
+        <img 
+          src="https://static.wikia.nocookie.net/reddeadredemption/images/9/9c/Rdr2_rdr2_3840x2160.jpg/revision/latest" 
+          alt="Arthur Morgan a cavalo ao pôr do sol no horizonte do Oeste" 
+          loading="eager" 
+          fetchpriority="high" 
+          decoding="async" 
+          width="3840" 
+          height="2160" 
+        />
+      </div>
+      <div class="hero__shade"></div>
+      <div class="hero__sun" aria-hidden="true"></div>
+
+      <div class="hero__index vertical-copy">O OESTE · 1899 · AMÉRICA</div>
+
+      <div class="hero__content">
+        <div class="eyebrow reveal">Um mundo em declínio. Uma lenda viva.</div>
+        <h1 class="hero__title" aria-label="Foras da lei até o fim">
+          <span class="reveal reveal-delay-1">FORAS DA LEI</span>
+          <span class="outline reveal reveal-delay-2">ATÉ O</span>
+          <span class="red reveal reveal-delay-3">FIM.</span>
+        </h1>
+        <div class="hero__bottom reveal reveal-delay-4">
+          <p>América, 1899. A era dos foras da lei está chegando ao fim. O que resta é a lealdade, o sangue e o preço da liberdade.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary magnetic" href="#story"><span>Entrar na história</span></a>
+            <button class="btn btn--ghost magnetic" data-open-trailer><span>Assistir ao trailer</span></button>
+            <a class="btn btn--ghost magnetic" href="comprar.html" target="_blank" rel="noopener noreferrer"><span>Comprar jogo ↗</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stamp" aria-hidden="true">
+        <span>VAN DER LINDE</span>
+        <strong>1899</strong>
+        <span>SEM RENDIÇÃO</span>
+      </div>
+
+      <a href="#story" class="scroll-cue" aria-label="Rolar para a história">
+        <span>EXPLORAR</span><i></i>
+      </a>
+    </section>
+
+    <section class="manifesto">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>LEALDADE &nbsp; SANGUE &nbsp; LIBERDADE &nbsp; REDENÇÃO &nbsp;</span>
+          <span>LEALDADE &nbsp; SANGUE &nbsp; LIBERDADE &nbsp; REDENÇÃO &nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="story section-paper" id="story">
+      <div class="section-mark reveal">
+        <span>01</span>
+        <p>A HISTÓRIA & O MUNDO SELVAGEM</p>
+      </div>
+
+      <div class="story__intro">
+        <p class="kicker reveal">Entre florestas densas e terras indomadas, cada escolha define quem sobrevive.</p>
+        <h2 class="display reveal">UM HOMEM DIVIDIDO<br>ENTRE A <em>LEALDADE</em><br>E A NATUREZA.</h2>
+      </div>
+
+      <div class="story__grid">
+        <figure class="story__image story__image--main reveal parallax-media" data-speed="0.04">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/b/b1/RDR_2_First_Look_6.jpg/revision/latest" 
+            alt="Arthur Morgan rastreando na densa floresta de Roanoke Ridge em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <figcaption>01 — Arthur Morgan / Rastreamento na Floresta</figcaption>
+        </figure>
+
+        <div class="story__details">
+          <div class="story__copy reveal">
+            <span class="quote-mark">“</span>
+            <p>Em um território povoado por mais de 200 espécies de animais selvagens, florestas monumentais de coníferas e rios cristalinos, Arthur Morgan e o bando sobrevivem caçando, acampando sob as copas das árvores e cruzando um dos ecossistemas mais vivos já criados.</p>
+          </div>
+
+          <div class="story__secondary-row">
+            <figure class="story__image story__image--secondary reveal parallax-media" data-speed="-0.03">
+              <img 
+                src="https://static.wikia.nocookie.net/reddeadredemption/images/8/89/RDR_2_First_Look_29.jpg/revision/latest" 
+                alt="Arthur e Dutch cavalgando pelas matas de pinheiros de Big Valley em 4K" 
+                loading="lazy" 
+                decoding="async" 
+                width="1920" 
+                height="1080" 
+              />
+              <figcaption>02 — Cumberland & Big Valley / Matas Nativas</figcaption>
+            </figure>
+
+            <div class="story__pullquote reveal">
+              <span>NATUREZA VIVA.</span>
+              <strong>PREDADORES, MATAS<br>E TERRA INDOMADA.</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="characters" id="characters">
+      <div class="characters__head">
+        <div class="section-mark section-mark--dark reveal">
+          <span>02</span><p>A GANGUE</p>
+        </div>
+        <h2 class="display display--light reveal">CINCO VIDAS.<br><span>UM SONHO EM RUÍNAS.</span></h2>
+      </div>
+
+      <div class="character-stage">
+        <div class="character-stage__image-wrap">
+          <img 
+            class="character-stage__image" 
+            id="characterImage" 
+            src="https://preview.redd.it/arthur-morgan-a-great-man-v0-6tqoe6we3c7f1.jpeg?auto=webp&s=49299ceebd0dd8a818bf974b7951dc3eda45442b" 
+            alt="Arthur Morgan" 
+            loading="eager" 
+            decoding="async" 
+            width="1080" 
+            height="1350" 
+          />
+          <div class="character-stage__wash"></div>
+          <span class="character-stage__ghost" id="characterGhost">ARTHUR</span>
+        </div>
+
+        <div class="character-stage__info">
+          <span class="character-stage__number" id="characterNumber">01 / 05</span>
+          <p class="character-stage__role" id="characterRole">O BRAÇO DIREITO</p>
+          <h3 id="characterName">Arthur<br>Morgan</h3>
+          <p id="characterDescription">Um experiente fora da lei e caçador habilidoso, mestre em rastrear predadores nas florestas e homem de confiança de Dutch.</p>
+          <div class="character-stage__controls">
+            <button class="round-control" id="charPrev" aria-label="Personagem anterior">←</button>
+            <button class="round-control" id="charNext" aria-label="Próximo personagem">→</button>
+          </div>
+        </div>
+
+        <div class="character-list" role="tablist" aria-label="Personagens da gangue">
+          <button class="active" data-character="0"><span>01</span> Arthur Morgan</button>
+          <button data-character="1"><span>02</span> Dutch van der Linde</button>
+          <button data-character="2"><span>03</span> John Marston</button>
+          <button data-character="3"><span>04</span> Sadie Adler</button>
+          <button data-character="4"><span>05</span> Hosea Matthews</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="world" id="world">
+      <div class="world__intro">
+        <div class="section-mark reveal"><span>03</span><p>ECOSSISTEMAS & VIDA SELVAGEM</p></div>
+        <h2 class="world__title reveal">FLORESTAS, MONTANHAS<br><span>E NATUREZA SELVAGEM.</span></h2>
+        <p class="world__lead reveal">Mais de 200 espécies de animais habitam ecossistemas vivos e reativos — desde florestas densas com ursos e alces até picos congelados onde os lobos caçam em alcateia.</p>
+      </div>
+
+      <article class="world-panel world-panel--forest">
+        <div class="world-panel__media parallax-media" data-speed="0.06">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/2/2e/Roanoke_Ridge_Panoramic_View.jpg/revision/latest" 
+            alt="Vista panorâmica da floresta densa de Roanoke Ridge em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="2560" 
+            height="1440" 
+          />
+        </div>
+        <div class="world-panel__copy reveal">
+          <span>01 / FLORESTAS & FAUNA</span>
+          <h3>Florestas de<br>Roanoke & Cumberland</h3>
+          <p>Coníferas milenares, névoa densa e refúgio de ursos-negros, alces majestosos e cervos que reagem a cada passo.</p>
+        </div>
+      </article>
+
+      <article class="world-panel world-panel--desert">
+        <div class="world-panel__media parallax-media" data-speed="0.08">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/f/fc/RDR_2_October_26_Delay_Screenshot_4.jpg/revision/latest" 
+            alt="Arthur Morgan nas montanhas congeladas de Grizzlies West em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="2560" 
+            height="1440" 
+          />
+        </div>
+        <div class="world-panel__copy world-panel__copy--right reveal">
+          <span>02 / PREDADORES & PICOS</span>
+          <h3>Grizzlies<br>West</h3>
+          <p>Ar rarefeito e nevascas brutais onde apenas o Urso Pardo Lendário, alcateias de lobos e águias-reais dominam o topo.</p>
+        </div>
+      </article>
+
+      <div class="world-stats">
+        <div class="reveal"><strong>200+</strong><span>Espécies de animais e ecossistemas vivos</span></div>
+        <div class="reveal"><strong>4K</strong><span>Florestas, rios e fauna em ultra-resolução</span></div>
+        <div class="reveal"><strong>1</strong><span>Cadeia alimentar viva e imprevisível</span></div>
+      </div>
+    </section>
+
+    <section class="gallery section-paper" id="gallery">
+      <div class="gallery__head">
+        <div class="section-mark reveal"><span>04</span><p>FAUNA & NOTAS DE CAMPO</p></div>
+        <h2 class="display reveal">A VIDA SELVAGEM<br><em>EM DETALHES 4K.</em></h2>
+      </div>
+
+      <div class="editorial-gallery">
+        <button class="gallery-shot shot-a reveal" data-gallery="0">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/3/36/RDR_2_October_26_Delay_Screenshot_1.jpg/revision/latest" 
+            alt="The Heartlands — Planícies abertas e habitat dos Bisões Americanos em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <span>01 / THE HEARTLANDS · BISÕES E CERVOS</span>
+        </button>
+        <button class="gallery-shot shot-b reveal" data-gallery="1">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/b/b1/RDR_2_First_Look_6.jpg/revision/latest" 
+            alt="Roanoke Ridge — Arthur Morgan caçando na floresta de coníferas em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <span>02 / ROANOKE RIDGE · FLORESTA & CAÇA</span>
+        </button>
+        <div class="gallery-note reveal">
+          <strong>ECOSSISTEMA<br>VIVO EM 4K.</strong>
+          <p>Alcateias de lobos caçam em bando.<br>Águias planam nos desfiladeiros.<br>Ursos defendem seu território.</p>
+        </div>
+        <button class="gallery-shot shot-c reveal" data-gallery="2">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/f/fc/RDR_2_October_26_Delay_Screenshot_4.jpg/revision/latest" 
+            alt="The Grizzlies — Picos nevados e território dos ursos pardos e lobos em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <span>03 / THE GRIZZLIES · PREDADORES DA NEVE</span>
+        </button>
+        <button class="gallery-shot shot-d reveal" data-gallery="3">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/8/89/RDR_2_First_Look_29.jpg/revision/latest" 
+            alt="Big Valley — Florestas exuberantes, rios e cavalos selvagens em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <span>04 / BIG VALLEY · CAVALOS & MATAS</span>
+        </button>
+        <button class="gallery-shot shot-e reveal" data-gallery="4">
+          <img 
+            src="https://static.wikia.nocookie.net/reddeadredemption/images/3/3b/RDR_2_First_Look_8.jpg/revision/latest" 
+            alt="New Austin — Vida selvagem e cavalgadas no deserto em 4K" 
+            loading="lazy" 
+            decoding="async" 
+            width="1920" 
+            height="1080" 
+          />
+          <span>05 / NEW AUSTIN · FRONTEIRA SELVAGEM</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="trailer" id="trailer">
+      <img 
+        class="trailer__bg parallax-media" 
+        data-speed="0.08" 
+        src="https://media.rockstargames.com/rockstargames-newsite/uploads/f924a7858cf5bbf0cb990f252a2fa8efb7919bec.jpg" 
+        alt="Gangue Van der Linde cavalgando junta ao pôr do sol" 
+        loading="lazy" 
+        decoding="async" 
+        width="2560" 
+        height="1440" 
+      />
+      <div class="trailer__overlay"></div>
+      <div class="trailer__copy reveal">
+        <span>TRAILER OFICIAL</span>
+        <h2>O FIM<br>DE UMA ERA.</h2>
+      </div>
+      <button class="play-button magnetic" data-open-trailer aria-label="Reproduzir trailer oficial">
+        <span class="play-button__icon">▶</span>
+        <span class="play-button__text">ASSISTIR<br>TRAILER</span>
+      </button>
+      <div class="trailer__edge-text">UMA EXPERIÊNCIA ROCKSTAR GAMES</div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contato">
+    <div class="footer__top">
+      <h2>CAVALGUE<br><span>RUMO AO</span><br>PÔR DO SOL.</h2>
+      <a href="#hero" class="back-top magnetic">VOLTAR AO TOPO ↗</a>
+    </div>
+
+    <div class="footer__bottom">
+      <div>
+        <span class="footer__label">NAVEGAÇÃO</span>
+        <a href="#story">História</a>
+        <a href="#characters">Personagens</a>
+        <a href="#world">O Mundo</a>
+        <a href="#gallery">Galeria</a>
+        <a href="comprar.html" target="_blank" rel="noopener noreferrer">Comprar Jogo ↗</a>
+      </div>
+      <div>
+        <span class="footer__label">REDES SOCIAIS</span>
+        <a href="https://www.youtube.com/rockstargames" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/rockstargames" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://twitter.com/rockstargames" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      </div>
+      <div class="footer__legal">
+        <p>Hotsite conceitual não oficial criado como estudo de design e desenvolvimento front-end inspirado no universo de Red Dead Redemption 2.</p>
+        <p>Red Dead Redemption e Rockstar Games são marcas registradas da Take-Two Interactive Software e Rockstar Games Inc.</p>
+      </div>
+      <div class="footer__year">1899<br><span>→</span><br>∞</div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="modal-close" data-close-lightbox aria-label="Fechar galeria">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Imagem anterior">←</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Próxima imagem">→</button>
+  </div>
+
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <button class="modal-close" data-close-trailer aria-label="Fechar trailer">×</button>
+    <div class="video-modal__frame">
+      <iframe
+        id="trailerFrame"
+        src=""
+        title="Trailer oficial de Red Dead Redemption 2"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
