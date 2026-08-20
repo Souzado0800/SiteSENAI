@@ -30,6 +30,7 @@
   const toggleMenu = (shouldOpen) => {
     const open = typeof shouldOpen === "boolean" ? shouldOpen : !nav.classList.contains("is-open");
     nav.classList.toggle("is-open", open);
+    header?.classList.toggle("nav-open", open);
     menuToggle?.setAttribute("aria-expanded", String(open));
     menuToggle?.setAttribute("aria-label", open ? "Fechar menu de navegação" : "Abrir menu de navegação");
     document.body.classList.toggle("modal-open", open);
