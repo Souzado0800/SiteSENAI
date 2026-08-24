@@ -15,7 +15,7 @@
        ESTILOS EXCLUSIVOS DO MURAL DE ZUEIRA (FUN.HTML)
        ========================================================= */
     :root {
-      --wanted-paper: #e6dac3;
+      --wanted-paper: #e8dbc3;
       --wanted-dark: #2a1a12;
       --wanted-stamp: #b61d1d;
     }
@@ -170,10 +170,10 @@
       box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
     }
 
-    /* Grid dos Cartazes de Procurado (Wanted Posters) */
+    /* Seção dos Cartazes */
     .posters-section {
-      padding: 70px 20px 90px;
-      max-width: 1400px;
+      padding: 70px 24px 90px;
+      max-width: 1500px;
       margin: 0 auto;
     }
 
@@ -191,19 +191,189 @@
       color: #fff;
     }
 
-    .posters-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-      perspective: 1200px;
+    /* =========================================================
+       1. BANNER GRANDÃO EM CIMA (FEATURED HERO WANTED BANNER)
+       ========================================================= */
+    .featured-wanted-wrap {
+      margin-bottom: 45px;
     }
 
-    /* Cartaz Estilo Pergaminho Wanted */
+    .wanted-featured {
+      position: relative;
+      background: #e8dbc3;
+      color: #2b1a11;
+      padding: 30px 28px 32px;
+      border: 5px double #5a3c26;
+      border-radius: 6px;
+      box-shadow: 0 25px 65px rgba(0,0,0,0.75), inset 0 0 80px rgba(139, 90, 43, 0.25);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+    }
+
+    .wanted-featured:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 35px 85px rgba(0,0,0,0.9), 0 0 35px rgba(182, 29, 29, 0.35);
+    }
+
+    .wanted-featured::before {
+      content: "★ ★ ★ ★ ★   MOST WANTED OUTLAW — RECOMPENSA MÁXIMA   ★ ★ ★ ★ ★";
+      position: absolute;
+      top: 8px;
+      font-family: var(--typewriter);
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #8c251d;
+      font-weight: bold;
+    }
+
+    .wanted-featured__head {
+      width: 100%;
+      border-bottom: 2px solid #3d2414;
+      padding-bottom: 10px;
+      margin-top: 10px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .wanted-featured__head-left {
+      text-align: left;
+    }
+
+    .wanted-featured__head-left h3 {
+      margin: 0;
+      font-family: "Antonio", Impact, sans-serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #1a0f08;
+      line-height: .9;
+      text-transform: uppercase;
+    }
+
+    .wanted-featured__head-left span {
+      font-family: var(--typewriter);
+      font-size: 12px;
+      letter-spacing: .2em;
+      color: #8c251d;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+      font-weight: bold;
+    }
+
+    .wanted-featured__head-right {
+      text-align: right;
+      font-family: var(--typewriter);
+      font-size: 11px;
+      color: #5a3c26;
+      line-height: 1.3;
+    }
+
+    /* Container Widescreen Panorâmico do 4º Banner (1024x506 / 2:1) */
+    .wanted-featured__media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2.05 / 1;
+      max-height: 520px;
+      background: #110d0a;
+      border: 4px solid #3d2414;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wanted-featured__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      filter: sepia(.2) contrast(1.1) brightness(0.98);
+      transition: filter .4s, transform .6s var(--ease);
+    }
+
+    .wanted-featured:hover .wanted-featured__media img {
+      filter: sepia(0) contrast(1.05) brightness(1.02);
+      transform: scale(1.02);
+    }
+
+    .wanted-featured__body {
+      margin-top: 18px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .wanted-featured__name {
+      font-family: var(--display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: #1a0f08;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .wanted-featured__crime {
+      font-family: var(--typewriter);
+      font-size: clamp(13px, 1.3vw, 16px);
+      color: #4a3424;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .wanted-featured__bounty-box {
+      padding: 12px 24px;
+      background: #3d2414;
+      color: #ffd066;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      white-space: nowrap;
+    }
+
+    .wanted-featured__bounty-box span {
+      display: block;
+      font-family: var(--typewriter);
+      font-size: 10px;
+      letter-spacing: .2em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2px;
+    }
+
+    .wanted-featured__bounty-box strong {
+      font-family: var(--display);
+      font-size: clamp(26px, 2.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+
+    /* =========================================================
+       2. GRID COM OS OUTROS 3 BANNERS EM BAIXO
+       ========================================================= */
+    .posters-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    /* Cartaz Estilo Pergaminho Wanted Inferior */
     .wanted-card {
       position: relative;
       background: #e8dbc3;
       color: #2b1a11;
-      padding: 24px 20px 28px;
+      padding: 22px 18px 26px;
       border: 4px double #5a3c26;
       border-radius: 4px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 60px rgba(139, 90, 43, 0.25);
@@ -238,13 +408,13 @@
       width: 100%;
       border-bottom: 2px solid #3d2414;
       padding-bottom: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .wanted-card__head h3 {
       margin: 0;
       font-family: "Antonio", Impact, sans-serif;
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       letter-spacing: .08em;
       color: #1a0f08;
@@ -255,64 +425,69 @@
     .wanted-card__head span {
       font-family: var(--typewriter);
       font-size: 10px;
-      letter-spacing: .25em;
+      letter-spacing: .22em;
       color: #8c251d;
       text-transform: uppercase;
       display: block;
       margin-top: 4px;
+      font-weight: bold;
     }
 
-    /* Foto do Amigo no Cartaz */
+    /* Container de Mídia dos 3 Cartazes com object-fit contain anti-corte */
     .wanted-card__media {
       position: relative;
       width: 100%;
-      aspect-ratio: 4/5;
-      background: #110d0a;
+      aspect-ratio: 3 / 4;
+      background: #140e0b;
       border: 3px solid #3d2414;
       overflow: hidden;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+      box-shadow: inset 0 0 25px rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .wanted-card__media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      filter: sepia(.35) contrast(1.15) brightness(0.95);
+      object-fit: contain;
+      object-position: center center;
+      filter: sepia(.25) contrast(1.12) brightness(0.95);
       transition: filter .4s, transform .6s var(--ease);
     }
 
     .wanted-card:hover .wanted-card__media img {
       filter: sepia(0) contrast(1.05) brightness(1.02);
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     /* Carimbos Zueira */
     .wanted-stamp {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 12px;
+      right: 12px;
       padding: 4px 10px;
       border: 2px solid #b61d1d;
       color: #b61d1d;
       font-family: var(--typewriter);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
       letter-spacing: .15em;
       text-transform: uppercase;
-      transform: rotate(15deg);
-      background: rgba(232, 219, 195, 0.85);
+      transform: rotate(14deg);
+      background: rgba(232, 219, 195, 0.9);
       backdrop-filter: blur(4px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       pointer-events: none;
+      z-index: 2;
     }
 
     .wanted-stamp--alert {
       top: auto;
-      bottom: 15px;
-      left: 15px;
+      bottom: 12px;
+      left: 12px;
       right: auto;
-      transform: rotate(-12deg);
+      transform: rotate(-10deg);
       border-color: #8a1414;
       color: #8a1414;
     }
@@ -324,7 +499,7 @@
 
     .wanted-card__name {
       font-family: var(--display);
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
       color: #1a0f08;
       margin: 0 0 4px;
@@ -338,7 +513,7 @@
       color: #4a3424;
       line-height: 1.4;
       margin: 6px 0 14px;
-      min-height: 34px;
+      min-height: 38px;
     }
 
     .wanted-card__bounty {
@@ -348,7 +523,7 @@
       background: #3d2414;
       color: #ffd066;
       font-family: var(--display);
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: .05em;
       border-radius: 2px;
@@ -357,7 +532,7 @@
     /* Dossiê Pinkerton */
     .dossier-section {
       padding: 60px 20px 80px;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -496,11 +671,50 @@
       transform: translateY(0);
     }
 
+    /* =========================================================
+       RESPONSIVIDADE & ULTRAWIDE
+       ========================================================= */
+    @media (min-width: 2560px), (min-aspect-ratio: 21/9) {
+      .posters-section {
+        max-width: 2000px;
+      }
+      .wanted-featured__media {
+        max-height: 600px;
+      }
+      .wanted-card__media {
+        aspect-ratio: 3 / 4;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .posters-grid-bottom {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .wanted-featured__body {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+
     @media (max-width: 780px) {
       .fun-hero {
         padding: 95px 16px 40px;
       }
-      .posters-grid {
+      .wanted-featured {
+        padding: 20px 16px;
+      }
+      .wanted-featured__head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .wanted-featured__head-right {
+        text-align: left;
+      }
+      .wanted-featured__media {
+        aspect-ratio: 16 / 9;
+      }
+      .posters-grid-bottom {
         grid-template-columns: 1fr;
         gap: 25px;
       }
@@ -563,7 +777,7 @@
       </h1>
       
       <p class="fun-hero__lead">
-        Procurados vivos, dormindo ou passando vergonha em território nacional. Cuidado: o indivíduo abaixo é perigosamente enrolador e possui mandados de prisão por crimes inafiançáveis contra o bom senso.
+        Procurados vivos, dormindo ou passando vergonha em território nacional. Cuidado: os indivíduos abaixo são perigosamente enroladores e possuem mandados de prisão por crimes inafiançáveis contra o bom senso.
       </p>
 
       <!-- Painel de Recompensa Interativo -->
@@ -581,22 +795,62 @@
     <!-- MURAL DOS CARTAZES DE PROCURADO -->
     <section class="posters-section" id="posters">
       <div class="section-title-wrap">
-        <span class="eyebrow" style="color: var(--red);">GALERIA DE MANDADOS</span>
+        <span class="eyebrow" style="color: var(--red);">MURAL OFICIAL DE MANDADOS</span>
         <h2>CARTAZES DE PROCURADO</h2>
-        <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 10px auto 0; font-size: 15px;">
-          Clique em qualquer cartaz para inspecionar as provas do crime em alta resolução.
+        <p style="color: rgba(255,255,255,0.7); max-width: 650px; margin: 10px auto 0; font-size: 15px;">
+          Clique em qualquer cartaz para inspecionar as provas do crime em alta resolução sem cortes.
         </p>
       </div>
 
-      <div class="posters-grid">
-        <!-- CARTAZ 1 -->
-        <article class="wanted-card" data-card="0">
+      <!-- =========================================================
+           4º BANNER GRANDÃO EM CIMA (HERO FEATURED WANTED BANNER)
+           ========================================================= -->
+      <div class="featured-wanted-wrap">
+        <article class="wanted-featured" data-meme-id="3">
+          <div class="wanted-featured__head">
+            <div class="wanted-featured__head-left">
+              <h3>WANTED · MOST WANTED</h3>
+              <span>★ O FORA DA LEI LENDÁRIO DA FRONTEIRA ★</span>
+            </div>
+            <div class="wanted-featured__head-right">
+              MANDADO Nº 1899-A<br>
+              EXPEDIDO PELO SHERIFF
+            </div>
+          </div>
+
+          <div class="wanted-featured__media">
+            <img src="imgs/memes/meme4.jpg" alt="A Lenda da Fronteira — 4º Banner Principal" loading="eager" decoding="async" />
+            <div class="wanted-stamp">PROCURADO VIVO OU MORTO</div>
+            <div class="wanted-stamp wanted-stamp--alert">PERIGO MÁXIMO</div>
+          </div>
+
+          <div class="wanted-featured__body">
+            <div>
+              <h4 class="wanted-featured__name">A Lenda de Valentine (O Inimigo do Fim)</h4>
+              <p class="wanted-featured__crime">
+                "Tentou puxar assunto com a morena no intervalo e acabou passando uma vergonha histórica de nível interestadual."
+              </p>
+            </div>
+            <div class="wanted-featured__bounty-box">
+              <span>RECOMPENSA MÁXIMA</span>
+              <strong>R$ 50.000,00</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- =========================================================
+           OS OUTROS 3 BANNERS EM BAIXO (GRID DE 3 COLUNAS)
+           ========================================================= -->
+      <div class="posters-grid-bottom">
+        <!-- CARTAZ 1 (meme1.jpg) -->
+        <article class="wanted-card" data-meme-id="0">
           <div class="wanted-card__head">
             <h3>WANTED</h3>
             <span>DEAD OR EMBARRASSED</span>
           </div>
           <div class="wanted-card__media">
-            <img src="imgs/memes/meme1.jpg" alt="Meme 1 do amigo" loading="lazy" decoding="async" />
+            <img src="imgs/memes/meme1.jpg" alt="O Mestre da Ilusão — Meme 1" loading="lazy" decoding="async" />
             <div class="wanted-stamp">PERIGO GRAU 0</div>
             <div class="wanted-stamp wanted-stamp--alert">NÃO CONFIE</div>
           </div>
@@ -607,14 +861,14 @@
           </div>
         </article>
 
-        <!-- CARTAZ 2 -->
-        <article class="wanted-card" data-card="1">
+        <!-- CARTAZ 2 (meme2.jpg — Ajustado com proporção integral) -->
+        <article class="wanted-card" data-meme-id="1">
           <div class="wanted-card__head">
             <h3>WANTED</h3>
             <span>DEAD OR SLEEPING</span>
           </div>
           <div class="wanted-card__media">
-            <img src="imgs/memes/meme2.jpg" alt="Meme 2 do amigo" loading="lazy" decoding="async" />
+            <img src="imgs/memes/meme2.jpg" alt="O Estrategista da Sexta — Meme 2" loading="lazy" decoding="async" />
             <div class="wanted-stamp">CASO PERDIDO</div>
             <div class="wanted-stamp wanted-stamp--alert">CALVO AOS 19</div>
           </div>
@@ -625,39 +879,21 @@
           </div>
         </article>
 
-        <!-- CARTAZ 3 -->
-        <article class="wanted-card" data-card="2">
+        <!-- CARTAZ 3 (meme3.jpg) -->
+        <article class="wanted-card" data-meme-id="2">
           <div class="wanted-card__head">
             <h3>WANTED</h3>
             <span>DEAD OR SINGLE</span>
           </div>
           <div class="wanted-card__media">
-            <img src="imgs/memes/meme3.jpg" alt="Meme 3 do amigo" loading="lazy" decoding="async" />
+            <img src="imgs/memes/meme3.jpg" alt="O Pistoleiro do Zap — Meme 3" loading="lazy" decoding="async" />
             <div class="wanted-stamp">100% ILUDIDO</div>
-            <div class="wanted-stamp wanted-stamp--alert">INIMIGO DO FIM</div>
+            <div class="wanted-stamp wanted-stamp--alert">SEM SALVAÇÃO</div>
           </div>
           <div class="wanted-card__body">
             <h4 class="wanted-card__name">O Pistoleiro do Zap</h4>
             <p class="wanted-card__crime">"Visualizou a mensagem do grupo, não respondeu e postou story 2 minutos depois."</p>
             <div class="wanted-card__bounty">REWARD: R$ 0,05</div>
-          </div>
-        </article>
-
-        <!-- CARTAZ 4 -->
-        <article class="wanted-card" data-card="3">
-          <div class="wanted-card__head">
-            <h3>WANTED</h3>
-            <span>LEGENDARY OUTLAW</span>
-          </div>
-          <div class="wanted-card__media">
-            <img src="imgs/memes/meme4.jpg" alt="Meme 4 do amigo" loading="lazy" decoding="async" />
-            <div class="wanted-stamp">PROCURADO</div>
-            <div class="wanted-stamp wanted-stamp--alert">SEM SALVAÇÃO</div>
-          </div>
-          <div class="wanted-card__body">
-            <h4 class="wanted-card__name">A Lenda da Fronteira</h4>
-            <p class="wanted-card__crime">"Tentou puxar assunto com a morena e acabou passando uma vergonha de nível interestadual."</p>
-            <div class="wanted-card__bounty">REWARD: 1 TAPA</div>
           </div>
         </article>
       </div>
@@ -782,7 +1018,6 @@
           const ctx = new AudioContext();
 
           if (type === "gunshot") {
-            // Sintetizador de Som de Tiro do Velho Oeste (Noise + Envelope)
             const bufferSize = ctx.sampleRate * 0.5;
             const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
             const data = buffer.getChannelData(0);
@@ -806,7 +1041,6 @@
             gain.connect(ctx.destination);
             noise.start();
           } else if (type === "coin") {
-            // Sintetizador de Som de Moeda (Ding!)
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             osc.type = "sine";
@@ -893,7 +1127,7 @@
         { src: "imgs/memes/meme1.jpg", alt: "O Mestre da Ilusão", caption: "Cartaz 01 — O Mestre da Ilusão (Quase terminando o trabalho...)" },
         { src: "imgs/memes/meme2.jpg", alt: "O Estrategista da Sexta", caption: "Cartaz 02 — O Estrategista da Sexta (Cavalo furou o pneu)" },
         { src: "imgs/memes/meme3.jpg", alt: "O Pistoleiro do Zap", caption: "Cartaz 03 — O Pistoleiro do Zap (Visualizou e não respondeu)" },
-        { src: "imgs/memes/meme4.jpg", alt: "A Lenda da Fronteira", caption: "Cartaz 04 — A Lenda da Fronteira (Vergonha internacional)" }
+        { src: "imgs/memes/meme4.jpg", alt: "A Lenda da Fronteira", caption: "Cartaz Principal — A Lenda da Fronteira (Vergonha histórica)" }
       ];
 
       const lightbox = document.getElementById("lightbox");
@@ -902,8 +1136,9 @@
       let currentMeme = 0;
 
       const openMemeLightbox = (idx) => {
-        currentMeme = idx;
+        currentMeme = Number(idx);
         const item = memeItems[currentMeme];
+        if (!item) return;
         lightboxImg.src = item.src;
         lightboxImg.alt = item.alt;
         lightboxCap.textContent = item.caption;
@@ -912,8 +1147,10 @@
         document.body.classList.add("modal-open");
       };
 
-      document.querySelectorAll(".wanted-card").forEach((card, i) => {
-        card.addEventListener("click", () => openMemeLightbox(i));
+      document.querySelectorAll("[data-meme-id]").forEach((el) => {
+        el.addEventListener("click", () => {
+          openMemeLightbox(el.dataset.memeId);
+        });
       });
     })();
   </script>
