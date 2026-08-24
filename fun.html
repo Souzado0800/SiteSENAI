@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d0b" />
+  <meta name="description" content="Mural dos Mais Procurados do Velho Oeste — Edição Especial de Zueira da 1899 Creative." />
+  <title>Mural dos Mais Procurados — 1899 Meme Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Special+Elite&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* =========================================================
+       ESTILOS EXCLUSIVOS DO MURAL DE ZUEIRA (FUN.HTML)
+       ========================================================= */
+    :root {
+      --wanted-paper: #e6dac3;
+      --wanted-dark: #2a1a12;
+      --wanted-stamp: #b61d1d;
+    }
+
+    .fun-page {
+      background: radial-gradient(circle at 50% 20%, #1f140e 0%, #0c0907 80%);
+      color: #efe7d6;
+      min-height: 100vh;
+    }
+
+    /* Hero da Zueira */
+    .fun-hero {
+      position: relative;
+      padding: calc(var(--header-h) + 40px) 20px 60px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 2px dashed rgba(182, 29, 29, 0.4);
+    }
+
+    .fun-hero__bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.12;
+      background-image: radial-gradient(#b61d1d 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .fun-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(182, 29, 29, 0.2);
+      border: 1px solid var(--red);
+      border-radius: 50px;
+      font-family: var(--typewriter);
+      font-size: 11px;
+      letter-spacing: .2em;
+      color: #ff6b6b;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(182, 29, 29, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(182, 29, 29, 0.6); }
+    }
+
+    .fun-hero__title {
+      margin: 0 auto;
+      font-family: var(--display);
+      font-size: clamp(46px, 9vw, 110px);
+      font-weight: 700;
+      line-height: .88;
+      letter-spacing: -.03em;
+      text-transform: uppercase;
+      color: #ffffff;
+      max-width: 1100px;
+    }
+
+    .fun-hero__title span {
+      color: var(--red);
+      display: inline-block;
+      text-shadow: 0 0 30px rgba(182, 29, 29, 0.5);
+    }
+
+    .fun-hero__lead {
+      max-width: 680px;
+      margin: 22px auto 0;
+      font-family: Georgia, serif;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Painel de Recompensa Dinâmico */
+    .bounty-meter {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      padding: 18px 32px;
+      background: rgba(26, 17, 13, 0.85);
+      border: 2px solid #8c251d;
+      border-radius: 8px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .bounty-meter__label {
+      font-family: var(--typewriter);
+      font-size: 12px;
+      letter-spacing: .25em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .bounty-meter__val {
+      font-family: var(--display);
+      font-size: clamp(38px, 6vw, 64px);
+      font-weight: 700;
+      color: #ffd066;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      margin: 4px 0 12px;
+      line-height: 1;
+    }
+
+    .fun-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn-fun {
+      padding: 12px 22px;
+      font-family: var(--typewriter);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      background: #221712;
+      color: #fff;
+      cursor: pointer;
+      transition: all .25s var(--ease);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-fun:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(182, 29, 29, 0.4);
+    }
+
+    .btn-fun--gold {
+      background: #b8860b;
+      border-color: #ffd700;
+      color: #110d0a;
+    }
+
+    .btn-fun--gold:hover {
+      background: #ffd700;
+      border-color: #fff;
+      color: #000;
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+    }
+
+    /* Grid dos Cartazes de Procurado (Wanted Posters) */
+    .posters-section {
+      padding: 70px 20px 90px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title-wrap h2 {
+      font-family: var(--display);
+      font-size: clamp(40px, 6vw, 75px);
+      margin: 0;
+      letter-spacing: -.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .posters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      perspective: 1200px;
+    }
+
+    /* Cartaz Estilo Pergaminho Wanted */
+    .wanted-card {
+      position: relative;
+      background: #e8dbc3;
+      color: #2b1a11;
+      padding: 24px 20px 28px;
+      border: 4px double #5a3c26;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 60px rgba(139, 90, 43, 0.25);
+      transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .wanted-card::before {
+      content: "★ ★ ★";
+      position: absolute;
+      top: 6px;
+      font-size: 10px;
+      letter-spacing: 6px;
+      color: #8c251d;
+    }
+
+    .wanted-card:hover {
+      transform: translateY(-8px) rotate(1deg) scale(1.02);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.85), 0 0 30px rgba(182, 29, 29, 0.3);
+    }
+
+    .wanted-card:nth-child(even):hover {
+      transform: translateY(-8px) rotate(-1deg) scale(1.02);
+    }
+
+    .wanted-card__head {
+      width: 100%;
+      border-bottom: 2px solid #3d2414;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    .wanted-card__head h3 {
+      margin: 0;
+      font-family: "Antonio", Impact, sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: #1a0f08;
+      line-height: .9;
+      text-transform: uppercase;
+    }
+
+    .wanted-card__head span {
+      font-family: var(--typewriter);
+      font-size: 10px;
+      letter-spacing: .25em;
+      color: #8c251d;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Foto do Amigo no Cartaz */
+    .wanted-card__media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #110d0a;
+      border: 3px solid #3d2414;
+      overflow: hidden;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    }
+
+    .wanted-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: sepia(.35) contrast(1.15) brightness(0.95);
+      transition: filter .4s, transform .6s var(--ease);
+    }
+
+    .wanted-card:hover .wanted-card__media img {
+      filter: sepia(0) contrast(1.05) brightness(1.02);
+      transform: scale(1.05);
+    }
+
+    /* Carimbos Zueira */
+    .wanted-stamp {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 4px 10px;
+      border: 2px solid #b61d1d;
+      color: #b61d1d;
+      font-family: var(--typewriter);
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transform: rotate(15deg);
+      background: rgba(232, 219, 195, 0.85);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      pointer-events: none;
+    }
+
+    .wanted-stamp--alert {
+      top: auto;
+      bottom: 15px;
+      left: 15px;
+      right: auto;
+      transform: rotate(-12deg);
+      border-color: #8a1414;
+      color: #8a1414;
+    }
+
+    .wanted-card__body {
+      margin-top: 14px;
+      width: 100%;
+    }
+
+    .wanted-card__name {
+      font-family: var(--display);
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a0f08;
+      margin: 0 0 4px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .wanted-card__crime {
+      font-family: var(--typewriter);
+      font-size: 12px;
+      color: #4a3424;
+      line-height: 1.4;
+      margin: 6px 0 14px;
+      min-height: 34px;
+    }
+
+    .wanted-card__bounty {
+      display: inline-block;
+      width: 100%;
+      padding: 8px 12px;
+      background: #3d2414;
+      color: #ffd066;
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      border-radius: 2px;
+    }
+
+    /* Dossiê Pinkerton */
+    .dossier-section {
+      padding: 60px 20px 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .dossier-box {
+      background: #191310;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 5px solid var(--red);
+      border-radius: 4px;
+      padding: 35px 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .dossier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .dossier-table th, 
+    .dossier-table td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 14px;
+    }
+
+    .dossier-table th {
+      font-family: var(--typewriter);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      width: 30%;
+    }
+
+    .dossier-table td {
+      color: #efe7d6;
+      font-family: var(--body);
+      font-weight: 500;
+    }
+
+    .dossier-table td span.tag-alert {
+      display: inline-block;
+      padding: 2px 8px;
+      background: rgba(182, 29, 29, 0.25);
+      color: #ff6b6b;
+      border-radius: 3px;
+      font-family: var(--typewriter);
+      font-size: 10px;
+    }
+
+    /* Gerador de Mandado Interativo */
+    .generator-section {
+      padding: 60px 20px 100px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .generator-box {
+      background: rgba(24, 18, 14, 0.9);
+      border: 2px dashed rgba(255, 215, 0, 0.3);
+      border-radius: 8px;
+      padding: 35px 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    .generator-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 25px auto 0;
+    }
+
+    .generator-form input,
+    .generator-form select {
+      padding: 12px 16px;
+      background: #0d0a08;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      color: #fff;
+      font-family: var(--body);
+      font-size: 14px;
+      outline: none;
+      transition: border-color .3s;
+    }
+
+    .generator-form input:focus,
+    .generator-form select:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 10px rgba(182, 29, 29, 0.3);
+    }
+
+    .generator-result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e8dbc3;
+      color: #1a0f08;
+      border-radius: 4px;
+      display: none;
+      border: 3px solid #3d2414;
+      animation: popIn .3s ease;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Toast e Notificações Cômicas */
+    .sound-notice {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: #110d0a;
+      border-left: 4px solid #ffd066;
+      padding: 12px 18px;
+      color: #fff;
+      font-family: var(--typewriter);
+      font-size: 11px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .3s, transform .3s;
+    }
+
+    .sound-notice.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 780px) {
+      .fun-hero {
+        padding: 95px 16px 40px;
+      }
+      .posters-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .dossier-table th, .dossier-table td {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+      }
+      .dossier-table th {
+        border-bottom: none;
+        padding-top: 14px;
+      }
+    }
+  </style>
+</head>
+<body class="fun-page">
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor cursor--outer" aria-hidden="true"></div>
+  <div class="cursor cursor--inner" aria-hidden="true"></div>
+
+  <!-- HEADER OFICIAL DA 1899 CREATIVE -->
+  <header class="site-header" id="top">
+    <a href="index.html" class="brand" aria-label="1899 Creative — Início">
+      <div class="brand__placeholder">
+        <div class="brand__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L14.4 7.6L20.4 8.2L15.9 12.3L17.2 18.2L12 15.1L6.8 18.2L8.1 12.3L3.6 8.2L9.6 7.6L12 2Z"/>
+          </svg>
+        </div>
+        <div class="brand__text">
+          <span class="brand__tag">CREATIVE STUDIO</span>
+          <strong class="brand__name">1899 <span>CREATIVE</span></strong>
+        </div>
+      </div>
+    </a>
+
+    <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
+      <a href="index.html">← Início</a>
+      <a href="#posters">Cartazes</a>
+      <a href="#dossier">Dossiê</a>
+      <a href="#generator">Gerador</a>
+      <a href="comprar.html" target="_blank" rel="noopener noreferrer" class="nav-buy">Comprar ↗</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="siteNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO SECTION DA ZUEIRA -->
+    <section class="fun-hero">
+      <div class="fun-hero__bg"></div>
+      <div class="fun-badge">★ ARQUIVO CONFIDENCIAL DA GANGUE DO SENAI ★</div>
+      
+      <h1 class="fun-hero__title">
+        WANTED: OS MAIS <span>PROCURADOS</span>
+      </h1>
+      
+      <p class="fun-hero__lead">
+        Procurados vivos, dormindo ou passando vergonha em território nacional. Cuidado: o indivíduo abaixo é perigosamente enrolador e possui mandados de prisão por crimes inafiançáveis contra o bom senso.
+      </p>
+
+      <!-- Painel de Recompensa Interativo -->
+      <div class="bounty-meter">
+        <span class="bounty-meter__label">RECOMPENSA ATUAL ACUMULADA</span>
+        <span class="bounty-meter__val" id="bountyDisplay">R$ 0,15 + 1 Coxinha</span>
+        <div class="fun-actions">
+          <button class="btn-fun btn-fun--gold" id="btnIncreaseBounty">💰 Aumentar Recompensa</button>
+          <button class="btn-fun" id="btnRandomCrime">🎲 Sortear Novo Crime</button>
+          <button class="btn-fun" id="btnPlayGunshot">🔫 Disparar Alerta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MURAL DOS CARTAZES DE PROCURADO -->
+    <section class="posters-section" id="posters">
+      <div class="section-title-wrap">
+        <span class="eyebrow" style="color: var(--red);">GALERIA DE MANDADOS</span>
+        <h2>CARTAZES DE PROCURADO</h2>
+        <p style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 10px auto 0; font-size: 15px;">
+          Clique em qualquer cartaz para inspecionar as provas do crime em alta resolução.
+        </p>
+      </div>
+
+      <div class="posters-grid">
+        <!-- CARTAZ 1 -->
+        <article class="wanted-card" data-card="0">
+          <div class="wanted-card__head">
+            <h3>WANTED</h3>
+            <span>DEAD OR EMBARRASSED</span>
+          </div>
+          <div class="wanted-card__media">
+            <img src="imgs/memes/meme1.jpg" alt="Meme 1 do amigo" loading="lazy" decoding="async" />
+            <div class="wanted-stamp">PERIGO GRAU 0</div>
+            <div class="wanted-stamp wanted-stamp--alert">NÃO CONFIE</div>
+          </div>
+          <div class="wanted-card__body">
+            <h4 class="wanted-card__name">O Mestre da Ilusão</h4>
+            <p class="wanted-card__crime">"Afirmou que estava quase terminando o trabalho enquanto jogava no celular."</p>
+            <div class="wanted-card__bounty">REWARD: R$ 0,50</div>
+          </div>
+        </article>
+
+        <!-- CARTAZ 2 -->
+        <article class="wanted-card" data-card="1">
+          <div class="wanted-card__head">
+            <h3>WANTED</h3>
+            <span>DEAD OR SLEEPING</span>
+          </div>
+          <div class="wanted-card__media">
+            <img src="imgs/memes/meme2.jpg" alt="Meme 2 do amigo" loading="lazy" decoding="async" />
+            <div class="wanted-stamp">CASO PERDIDO</div>
+            <div class="wanted-stamp wanted-stamp--alert">CALVO AOS 19</div>
+          </div>
+          <div class="wanted-card__body">
+            <h4 class="wanted-card__name">O Estrategista da Sexta</h4>
+            <p class="wanted-card__crime">"Faltou na aula alegando que o cavalo furou o pneu na subida do SENAI."</p>
+            <div class="wanted-card__bounty">REWARD: 1 DOLLY</div>
+          </div>
+        </article>
+
+        <!-- CARTAZ 3 -->
+        <article class="wanted-card" data-card="2">
+          <div class="wanted-card__head">
+            <h3>WANTED</h3>
+            <span>DEAD OR SINGLE</span>
+          </div>
+          <div class="wanted-card__media">
+            <img src="imgs/memes/meme3.jpg" alt="Meme 3 do amigo" loading="lazy" decoding="async" />
+            <div class="wanted-stamp">100% ILUDIDO</div>
+            <div class="wanted-stamp wanted-stamp--alert">INIMIGO DO FIM</div>
+          </div>
+          <div class="wanted-card__body">
+            <h4 class="wanted-card__name">O Pistoleiro do Zap</h4>
+            <p class="wanted-card__crime">"Visualizou a mensagem do grupo, não respondeu e postou story 2 minutos depois."</p>
+            <div class="wanted-card__bounty">REWARD: R$ 0,05</div>
+          </div>
+        </article>
+
+        <!-- CARTAZ 4 -->
+        <article class="wanted-card" data-card="3">
+          <div class="wanted-card__head">
+            <h3>WANTED</h3>
+            <span>LEGENDARY OUTLAW</span>
+          </div>
+          <div class="wanted-card__media">
+            <img src="imgs/memes/meme4.jpg" alt="Meme 4 do amigo" loading="lazy" decoding="async" />
+            <div class="wanted-stamp">PROCURADO</div>
+            <div class="wanted-stamp wanted-stamp--alert">SEM SALVAÇÃO</div>
+          </div>
+          <div class="wanted-card__body">
+            <h4 class="wanted-card__name">A Lenda da Fronteira</h4>
+            <p class="wanted-card__crime">"Tentou puxar assunto com a morena e acabou passando uma vergonha de nível interestadual."</p>
+            <div class="wanted-card__bounty">REWARD: 1 TAPA</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DOSSIÊ CONFIDENCIAL -->
+    <section class="dossier-section" id="dossier">
+      <div class="dossier-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
+          <div>
+            <span style="color: var(--red); font-family: var(--typewriter); font-size: 11px; letter-spacing: .2em;">AGÊNCIA DE DETETIVES PINKERTON · DIVISÃO SENAI</span>
+            <h3 style="margin: 5px 0 0; font-family: var(--display); font-size: 32px; color: #fff;">FICHA CRIMINAL CONFIDENCIAL</h3>
+          </div>
+          <span style="padding: 6px 12px; border: 1px dashed var(--red); color: var(--red); font-family: var(--typewriter); font-size: 10px;">TOP SECRET</span>
+        </div>
+
+        <table class="dossier-table">
+          <tbody>
+            <tr>
+              <th>NOME DO SUSPEITO</th>
+              <td>O Amigo da Galera <span class="tag-alert">IDENTIFICADO</span></td>
+            </tr>
+            <tr>
+              <th>VULGO / ALCUNHA</th>
+              <td>"Terror do Intervalo", "O Caloteiro da Cantina", "Inimigo da Pontualidade"</td>
+            </tr>
+            <tr>
+              <th>GRAU DE PERICULOSIDADE</th>
+              <td>Baixo (Totalmente inofensivo até inventar uma piada sem graça).</td>
+            </tr>
+            <tr>
+              <th>HABILIDADES CONHECIDAS</th>
+              <td>Dormir de olho semiaberto, pedir cola em prova de múltipla escolha e sumir na hora da conta.</td>
+            </tr>
+            <tr>
+              <th>ÚLTIMO AVISTAMENTO</th>
+              <td>Visto pela última vez enrolando para fazer o trabalho em grupo e mandando memes no Discord.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- GERADOR DE MANDADO DE PRISÃO PERSONALIZADO -->
+    <section class="generator-section" id="generator">
+      <div class="generator-box">
+        <span class="eyebrow" style="color: #ffd066;">FERRAMENTA DO XERIFE</span>
+        <h3 style="font-family: var(--display); font-size: 36px; margin: 8px 0; color: #fff;">GERAR MANDADO DE OUTRO AMIGO</h3>
+        <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0 auto;">
+          Quer zoar outro amigo da sala? Digite o nome dele e escolha um crime oficial do Velho Oeste!
+        </p>
+
+        <form class="generator-form" id="customBountyForm">
+          <input type="text" id="targetName" placeholder="Nome do amigo a ser zoado..." required />
+          <select id="targetCrime">
+            <option value="Crime: Não pagar a coxinha da cantina há 3 meses.">Crime: Não pagar a coxinha da cantina há 3 meses</option>
+            <option value="Crime: Roncar alto na aula de programação.">Crime: Roncar alto na aula de programação</option>
+            <option value="Crime: Errar o commit no GitHub e culpar o coleguinha.">Crime: Errar o commit no GitHub e culpar o coleguinha</option>
+            <option value="Crime: Mandar áudio de 5 minutos sem falar nada com nada.">Crime: Mandar áudio de 5 minutos sem falar nada com nada</option>
+            <option value="Crime: Tentar disfarçar o sono com óculos escuros na sala.">Crime: Tentar disfarçar o sono com óculos escuros na sala</option>
+          </select>
+          <button type="submit" class="btn-fun btn-fun--gold" style="justify-content: center;">📜 Gerar Cartaz Oficial</button>
+        </form>
+
+        <div class="generator-result" id="generatorResult">
+          <h4 style="margin: 0; font-family: var(--display); font-size: 30px; color: #8c251d;">★ MANDADO EXPEDIDO COM SUCESSO! ★</h4>
+          <p id="generatedText" style="font-family: var(--typewriter); font-size: 13px; margin: 10px 0;"></p>
+          <span style="font-weight: bold; font-size: 18px; color: #1a0f08;">RECOMPENSA: R$ 0,02 + 1 Copo d'água</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- NOTIFICAÇÃO SONORA -->
+  <div class="sound-notice" id="soundNotice">
+    <span>💥 SOM REPRODUZIDO COM SUCESSO!</span>
+  </div>
+
+  <!-- LIGHTBOX PARA VER AS FOTOS EM TELA CHEIA -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="modal-close" data-close-lightbox aria-label="Fechar galeria">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Imagem anterior">←</button>
+    <figure>
+      <img id="lightboxImage" src="" alt="" decoding="async" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Próxima imagem">→</button>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <h2>ZUEIRA<br><span>SEM</span><br>LIMITES.</h2>
+      <a href="index.html" class="back-top magnetic">VOLTAR AO SITE OFICIAL ↗</a>
+    </div>
+
+    <div class="footer__bottom">
+      <div>
+        <span class="footer__label">NAVEGAÇÃO</span>
+        <a href="index.html">Site Principal</a>
+        <a href="#posters">Cartazes de Procurado</a>
+        <a href="#dossier">Dossiê Pinkerton</a>
+        <a href="#generator">Gerador de Mandados</a>
+      </div>
+      <div class="footer__legal">
+        <p>Página criada exclusivamente para fins de zueira e diversão entre amigos no projeto escolar do SENAI. Todos os direitos reservados ao bom humor.</p>
+      </div>
+      <div class="footer__year">1899<br><span>🤠</span><br>FUN</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* =========================================================
+       SCRIPTS EXCLUSIVOS DA PÁGINA FUN.HTML
+       ========================================================= */
+    (function() {
+      // Sistema de Áudio Sintetizado (Web Audio API sem dependências externas)
+      const playWesternSound = (type) => {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
+          const ctx = new AudioContext();
+
+          if (type === "gunshot") {
+            // Sintetizador de Som de Tiro do Velho Oeste (Noise + Envelope)
+            const bufferSize = ctx.sampleRate * 0.5;
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+              data[i] = Math.random() * 2 - 1;
+            }
+            const noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = ctx.createBiquadFilter();
+            filter.type = "lowpass";
+            filter.frequency.setValueAtTime(1000, ctx.currentTime);
+            filter.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.3);
+
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(1, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+            noise.start();
+          } else if (type === "coin") {
+            // Sintetizador de Som de Moeda (Ding!)
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(987.77, ctx.currentTime); // B5
+            osc.frequency.setValueAtTime(1318.51, ctx.currentTime + 0.08); // E6
+            gain.gain.setValueAtTime(0.3, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.6);
+          }
+        } catch (e) {
+          console.warn("Audio Context não suportado:", e);
+        }
+      };
+
+      const showNotice = (text) => {
+        const notice = document.getElementById("soundNotice");
+        if (!notice) return;
+        notice.innerHTML = `<span>${text}</span>`;
+        notice.classList.add("active");
+        setTimeout(() => notice.classList.remove("active"), 2200);
+      };
+
+      // 1. Aumentador de Recompensa
+      const bounties = [
+        "R$ 0,15 + 1 Coxinha",
+        "R$ 0,50 + 1 Dolly Guaraná",
+        "R$ 1,25 + 2 Balas Juquinha",
+        "R$ 2,00 + 1 Pão de Queijo Murcho",
+        "R$ 5,00 + 1 Tapa nas Costas",
+        "R$ 10,00 + A Aprovação no Semestre",
+        "R$ 50,00 + 1 Cavalo Manco",
+        "R$ 1.000.000,00 (Pago em Nota de 3 Reais)"
+      ];
+      let bountyIdx = 0;
+      const bountyDisplay = document.getElementById("bountyDisplay");
+      document.getElementById("btnIncreaseBounty")?.addEventListener("click", () => {
+        bountyIdx = (bountyIdx + 1) % bounties.length;
+        bountyDisplay.textContent = bounties[bountyIdx];
+        playWesternSound("coin");
+        showNotice("💰 RECOMPENSA AUMENTADA!");
+      });
+
+      // 2. Disparo de Alerta / Tiro
+      document.getElementById("btnPlayGunshot")?.addEventListener("click", () => {
+        playWesternSound("gunshot");
+        showNotice("💥 TIRO DISPARADO NO SALOON!");
+      });
+
+      // 3. Sorteador de Crimes Aleatórios
+      const randomCrimes = [
+        "Procurado por esquecer de mutar o microfone e gritar com o cachorro.",
+        "Procurado por dizer que 'no meu computador funciona' durante a apresentação.",
+        "Procurado por usar Comic Sans no relatório oficial do SENAI.",
+        "Procurado por roubar o brigadeiro da festa antes dos parabéns.",
+        "Procurado por fingir que a internet caiu para não ligar a câmera.",
+        "Procurado por prometer que ia pagar o almoço e esquecer a carteira em 1899."
+      ];
+      document.getElementById("btnRandomCrime")?.addEventListener("click", () => {
+        const crime = randomCrimes[Math.floor(Math.random() * randomCrimes.length)];
+        alert(`🚨 NOVO MANDADO DO XERIFE:\n\n${crime}`);
+        playWesternSound("coin");
+      });
+
+      // 4. Gerador de Mandado Personalizado
+      document.getElementById("customBountyForm")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("targetName").value.trim();
+        const crime = document.getElementById("targetCrime").value;
+        const result = document.getElementById("generatorResult");
+        const generatedText = document.getElementById("generatedText");
+
+        if (!name) return;
+        generatedText.innerHTML = `<strong>FORA DA LEI:</strong> ${name.toUpperCase()}<br><strong>ACUSAÇÃO:</strong> ${crime}`;
+        result.style.display = "block";
+        playWesternSound("gunshot");
+        showNotice(`📜 MANDADO GERADO PARA ${name.toUpperCase()}!`);
+      });
+
+      // 5. Integração dos Cartazes com o Lightbox
+      const memeItems = [
+        { src: "imgs/memes/meme1.jpg", alt: "O Mestre da Ilusão", caption: "Cartaz 01 — O Mestre da Ilusão (Quase terminando o trabalho...)" },
+        { src: "imgs/memes/meme2.jpg", alt: "O Estrategista da Sexta", caption: "Cartaz 02 — O Estrategista da Sexta (Cavalo furou o pneu)" },
+        { src: "imgs/memes/meme3.jpg", alt: "O Pistoleiro do Zap", caption: "Cartaz 03 — O Pistoleiro do Zap (Visualizou e não respondeu)" },
+        { src: "imgs/memes/meme4.jpg", alt: "A Lenda da Fronteira", caption: "Cartaz 04 — A Lenda da Fronteira (Vergonha internacional)" }
+      ];
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImage");
+      const lightboxCap = document.getElementById("lightboxCaption");
+      let currentMeme = 0;
+
+      const openMemeLightbox = (idx) => {
+        currentMeme = idx;
+        const item = memeItems[currentMeme];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.alt;
+        lightboxCap.textContent = item.caption;
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      };
+
+      document.querySelectorAll(".wanted-card").forEach((card, i) => {
+        card.addEventListener("click", () => openMemeLightbox(i));
+      });
+    })();
+  </script>
+</body>
+</html>
