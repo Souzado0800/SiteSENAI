@@ -210,7 +210,43 @@
   $("#charNext")?.addEventListener("click", () => setCharacter(state.characterIndex + 1));
 
   /* ---------------------------
-     Gallery lightbox
+     Wildlife Compendium Filters
+  ---------------------------- */
+  const wildlifeFilterBtns = $$(".wildlife-filter-btn");
+  const wildlifeCards = $$(".wildlife-card");
+
+  wildlifeFilterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      wildlifeFilterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      wildlifeCards.forEach(card => {
+        const cat = card.dataset.category || "";
+        if (filter === "all" || cat.includes(filter)) {
+          card.classList.remove("is-hidden");
+        } else {
+          card.classList.add("is-hidden");
+        }
+      });
+    });
+  });
+
+  const wildlifeItems = wildlifeCards.map(card => {
+    const img = $("img", card);
+    const name = $(".wildlife-card__name", card)?.textContent || "";
+    const latin = $(".wildlife-card__latin", card)?.textContent || "";
+    const habitat = $(".wildlife-card__habitat", card)?.textContent || "";
+    const desc = $(".wildlife-card__desc", card)?.textContent || "";
+    return {
+      src: img ? img.src : "",
+      alt: img ? img.alt : name,
+      caption: `${name} (${latin}) — ${habitat} · ${desc}`
+    };
+  });
+
+  /* ---------------------------
+     Unified Lightbox (Gallery + Wildlife)
   ---------------------------- */
   const galleryShots = $$(".gallery-shot");
   const galleryItems = galleryShots.map(shot => ({
@@ -223,20 +259,28 @@
   const lightboxImage = $("#lightboxImage");
   const lightboxCaption = $("#lightboxCaption");
 
+  let activeLightboxCollection = galleryItems;
+  let activeLightboxIndex = 0;
+
   const renderLightbox = () => {
-    const item = galleryItems[state.galleryIndex];
+    const item = activeLightboxCollection[activeLightboxIndex];
+    if (!item) return;
     lightboxImage.src = item.src;
     lightboxImage.alt = item.alt;
     lightboxCaption.textContent = item.caption;
   };
 
-  const openLightbox = index => {
-    state.galleryIndex = index;
+  const openLightboxWith = (collection, index) => {
+    activeLightboxCollection = collection;
+    activeLightboxIndex = index;
     renderLightbox();
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
   };
+
+  galleryShots.forEach((shot, i) => shot.addEventListener("click", () => openLightboxWith(galleryItems, i)));
+  wildlifeCards.forEach((card, i) => card.addEventListener("click", () => openLightboxWith(wildlifeItems, i)));
 
   const closeLightbox = () => {
     lightbox.classList.remove("is-open");
@@ -244,14 +288,13 @@
     document.body.classList.remove("modal-open");
   };
 
-  galleryShots.forEach((shot, i) => shot.addEventListener("click", () => openLightbox(i)));
   $("[data-close-lightbox]")?.addEventListener("click", closeLightbox);
   $("[data-lightbox-prev]")?.addEventListener("click", () => {
-    state.galleryIndex = (state.galleryIndex - 1 + galleryItems.length) % galleryItems.length;
+    activeLightboxIndex = (activeLightboxIndex - 1 + activeLightboxCollection.length) % activeLightboxCollection.length;
     renderLightbox();
   });
   $("[data-lightbox-next]")?.addEventListener("click", () => {
-    state.galleryIndex = (state.galleryIndex + 1) % galleryItems.length;
+    activeLightboxIndex = (activeLightboxIndex + 1) % activeLightboxCollection.length;
     renderLightbox();
   });
   lightbox?.addEventListener("click", e => {
@@ -297,11 +340,11 @@
 
     if (lightbox?.classList.contains("is-open")) {
       if (e.key === "ArrowLeft") {
-        state.galleryIndex = (state.galleryIndex - 1 + galleryItems.length) % galleryItems.length;
+        activeLightboxIndex = (activeLightboxIndex - 1 + activeLightboxCollection.length) % activeLightboxCollection.length;
         renderLightbox();
       }
       if (e.key === "ArrowRight") {
-        state.galleryIndex = (state.galleryIndex + 1) % galleryItems.length;
+        activeLightboxIndex = (activeLightboxIndex + 1) % activeLightboxCollection.length;
         renderLightbox();
       }
     }
@@ -323,12 +366,14 @@
     window.requestIdleCallback(() => {
       preloadImages(characters.map(c => c.image));
       preloadImages(galleryItems.map(g => g.src));
+      preloadImages(wildlifeItems.map(w => w.src));
     });
   } else {
     window.addEventListener("load", () => {
       setTimeout(() => {
         preloadImages(characters.map(c => c.image));
         preloadImages(galleryItems.map(g => g.src));
+        preloadImages(wildlifeItems.map(w => w.src));
       }, 500);
     });
   }

@@ -45,6 +45,9 @@
     <nav class="site-nav" id="siteNav" aria-label="Navegação principal">
       <a href="#hero">Início</a>
       <a href="#story">Sobre</a>
+      <a href="#characters">Gangue</a>
+      <a href="#world">Mundo</a>
+      <a href="#wildlife">Fauna</a>
       <a href="#gallery">Galeria</a>
       <a href="#trailer">Trailer</a>
       <a href="fun.html" style="color: #ffd066;">Mural Zueira 🤠</a>
@@ -130,7 +133,7 @@
         <figure class="story__image story__image--main reveal parallax-media" data-speed="0.04">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/b/b1/RDR_2_First_Look_6.jpg/revision/latest" 
-            alt="Arthur Morgan rastreando na densa floresta de Roanoke Ridge em 4K" 
+            alt="Arthur Morgan rastreando na densa floresta de Roanoke Ridge" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -149,7 +152,7 @@
             <figure class="story__image story__image--secondary reveal parallax-media" data-speed="-0.03">
               <img 
                 src="https://static.wikia.nocookie.net/reddeadredemption/images/8/89/RDR_2_First_Look_29.jpg/revision/latest" 
-                alt="Arthur e Dutch cavalgando pelas matas de pinheiros de Big Valley em 4K" 
+                alt="Arthur e Dutch cavalgando pelas matas de pinheiros de Big Valley" 
                 loading="lazy" 
                 decoding="async" 
                 width="1920" 
@@ -223,7 +226,7 @@
         <div class="world-panel__media parallax-media" data-speed="0.06">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/2/2e/Roanoke_Ridge_Panoramic_View.jpg/revision/latest" 
-            alt="Vista panorâmica da floresta densa de Roanoke Ridge em 4K" 
+            alt="Vista panorâmica da floresta densa de Roanoke Ridge" 
             loading="lazy" 
             decoding="async" 
             width="2560" 
@@ -241,7 +244,7 @@
         <div class="world-panel__media parallax-media" data-speed="0.08">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/f/fc/RDR_2_October_26_Delay_Screenshot_4.jpg/revision/latest" 
-            alt="Arthur Morgan nas montanhas congeladas de Grizzlies West em 4K" 
+            alt="Arthur Morgan nas montanhas congeladas de Grizzlies West" 
             loading="lazy" 
             decoding="async" 
             width="2560" 
@@ -257,22 +260,217 @@
 
       <div class="world-stats">
         <div class="reveal"><strong>200+</strong><span>Espécies de animais e ecossistemas vivos</span></div>
-        <div class="reveal"><strong>4K</strong><span>Florestas, rios e fauna em ultra-resolução</span></div>
+        <div class="reveal"><strong>HDR</strong><span>Florestas, rios e fauna em alta definição</span></div>
         <div class="reveal"><strong>1</strong><span>Cadeia alimentar viva e imprevisível</span></div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO COMPÊNDIO DA FAUNA (WILDLIFE GALLERY) -->
+    <section class="wildlife-section" id="wildlife">
+      <div class="wildlife__head">
+        <div class="section-mark section-mark--dark reveal">
+          <span>04</span>
+          <p>COMPÊNDIO DA FAUNA & ANIMAIS SELVAGENS</p>
+        </div>
+        <div class="wildlife__title-wrap">
+          <h2 class="display display--light reveal">A FAUNA DO OESTE</h2>
+        </div>
+
+        <!-- Filtros Interativos por Categoria -->
+        <div class="wildlife__filters reveal" role="tablist" aria-label="Filtrar espécies por categoria">
+          <button class="wildlife-filter-btn active" data-filter="all">Todos (10)</button>
+          <button class="wildlife-filter-btn" data-filter="predator">Predadores Alfa</button>
+          <button class="wildlife-filter-btn" data-filter="herbivore">Herbívoros & Montarias</button>
+          <button class="wildlife-filter-btn" data-filter="birds">Aves & Rapinas</button>
+          <button class="wildlife-filter-btn" data-filter="aquatic">Pântano & Rios</button>
+        </div>
+      </div>
+
+      <!-- Grid dos 10 Animais -->
+      <div class="wildlife-grid">
+        <!-- 1. Urso Pardo Lendário -->
+        <article class="wildlife-card reveal" data-category="predator" data-wildlife-idx="0">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/urso.jpg" alt="Urso Pardo Lendário de Grizzlies West" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag wildlife-card__tag--legendary">Lendário · Ameaça Extrema</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">GRIZZLIES WEST · NEVASCAS</span>
+            <h3 class="wildlife-card__name">Urso Pardo Lendário</h3>
+            <span class="wildlife-card__latin">Ursus arctos horribilis</span>
+            <p class="wildlife-card__desc">O maior predador terrestre do Oeste. Força colossal capaz de derrubar montarias em segundos.</p>
+          </div>
+        </article>
+
+        <!-- 2. Lobo Cinzento -->
+        <article class="wildlife-card reveal" data-category="predator" data-wildlife-idx="1">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/lobo.jpg" alt="Lobo Cinzento dos Grizzlies" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag wildlife-card__tag--danger">Predador de Alcateia</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">MONTANHAS & FLORESTAS</span>
+            <h3 class="wildlife-card__name">Lobo Cinzento</h3>
+            <span class="wildlife-card__latin">Canis lupus</span>
+            <p class="wildlife-card__desc">Caçam em bandos coordenados e cercam suas presas sob a luz da lua nas noites geladas.</p>
+          </div>
+        </article>
+
+        <!-- 3. Águia-Real Americana -->
+        <article class="wildlife-card reveal" data-category="birds" data-wildlife-idx="2">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/aguia.jpg" alt="Águia Real Americana nos desfiladeiros" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Ave de Rapina Soberana</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">PICOS DE AMBARINO & CANYONS</span>
+            <h3 class="wildlife-card__name">Águia-Real Americana</h3>
+            <span class="wildlife-card__latin">Aquila chrysaetos</span>
+            <p class="wildlife-card__desc">Visão aguçada e voo majestoso sobre os desfiladeiros mais altos e inacessíveis da fronteira.</p>
+          </div>
+        </article>
+
+        <!-- 4. Jacaré-Americano -->
+        <article class="wildlife-card reveal" data-category="predator aquatic" data-wildlife-idx="3">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/jacare.jpg" alt="Jacaré Americano dos Pântanos de Lemoyne" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag wildlife-card__tag--danger">Emboscada Mortal</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">BAYOU NWA · LEMOYNE</span>
+            <h3 class="wildlife-card__name">Jacaré-Americano</h3>
+            <span class="wildlife-card__latin">Alligator mississippiensis</span>
+            <p class="wildlife-card__desc">Camuflado nas águas turvas dos manguezais, aguarda pacientemente o momento exato do ataque.</p>
+          </div>
+        </article>
+
+        <!-- 5. Mustang Selvagem -->
+        <article class="wildlife-card reveal" data-category="herbivore" data-wildlife-idx="4">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/cavalo.jpg" alt="Mustang Selvagem de The Heartlands" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Montaria Indomável</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">THE HEARTLANDS · PLANÍCIES</span>
+            <h3 class="wildlife-card__name">Mustang Selvagem</h3>
+            <span class="wildlife-card__latin">Equus caballus</span>
+            <p class="wildlife-card__desc">Símbolo do espírito livre do Oeste. Conhecido pela resistência incansável e coragem em combate.</p>
+          </div>
+        </article>
+
+        <!-- 6. Puro-Sangue Negro -->
+        <article class="wildlife-card reveal" data-category="herbivore" data-wildlife-idx="5">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/cavalopreto.jpg" alt="Puro-Sangue Negro Americano" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Velocidade & Prestígio</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">SAINT DENIS & NEW HANOVER</span>
+            <h3 class="wildlife-card__name">Puro-Sangue Negro</h3>
+            <span class="wildlife-card__latin">Equus ferus caballus</span>
+            <p class="wildlife-card__desc">Pelagem escura como a noite, porte nobre e aceleração explosiva para fugas arriscadas.</p>
+          </div>
+        </article>
+
+        <!-- 7. Cervo-de-Cauda-Branca -->
+        <article class="wildlife-card reveal" data-category="herbivore" data-wildlife-idx="6">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/cervo.jpg" alt="Cervo de Cauda Branca nas florestas" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Presa Nobre</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">ROANOKE RIDGE & BIG VALLEY</span>
+            <h3 class="wildlife-card__name">Cervo-de-Cauda-Branca</h3>
+            <span class="wildlife-card__latin">Odocoileus virginianus</span>
+            <p class="wildlife-card__desc">Ágil e atento aos menores ruídos, fornecendo alimento e couro essencial para o acampamento.</p>
+          </div>
+        </article>
+
+        <!-- 8. Monstro-de-Gila -->
+        <article class="wildlife-card reveal" data-category="aquatic" data-wildlife-idx="7">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/lagarto.jpg" alt="Monstro de Gila no deserto de New Austin" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag wildlife-card__tag--poison">Veneno do Deserto</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">NEW AUSTIN · DESERTO</span>
+            <h3 class="wildlife-card__name">Monstro-de-Gila</h3>
+            <span class="wildlife-card__latin">Heloderma suspectum</span>
+            <p class="wildlife-card__desc">Répteis rastejantes adaptados ao calor sufocante e predadores venenosos das rochas áridas.</p>
+          </div>
+        </article>
+
+        <!-- 9. Truta-Arco-Íris Lendária -->
+        <article class="wildlife-card reveal" data-category="aquatic" data-wildlife-idx="8">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/peixe.jpg" alt="Truta Arco-Íris Lendária dos rios de Dakota" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Ictiofauna dos Rios</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">RIO DAKOTA & CATARATAS</span>
+            <h3 class="wildlife-card__name">Truta-Arco-Íris</h3>
+            <span class="wildlife-card__latin">Oncorhynchus mykiss</span>
+            <p class="wildlife-card__desc">Habitante veloz das correntes de águas frias e cristalinas, exigindo iscas especiais para a pesca.</p>
+          </div>
+        </article>
+
+        <!-- 10. Urubu-de-Cabeça-Vermelha -->
+        <article class="wildlife-card reveal" data-category="birds" data-wildlife-idx="9">
+          <div class="wildlife-card__media">
+            <img src="imgs/wildlife/urubu.jpg" alt="Urubu de Cabeça Vermelha sobrevoando a fronteira" loading="lazy" decoding="async" width="2160" height="2160" />
+            <span class="wildlife-card__tag">Necrófago do Deserto</span>
+            <div class="wildlife-card__overlay">
+              <span class="wildlife-card__zoom-icon">🔍 Inspecionar</span>
+            </div>
+          </div>
+          <div class="wildlife-card__content">
+            <span class="wildlife-card__habitat">RIO BRAVO & GAPTOOTH RIDGE</span>
+            <h3 class="wildlife-card__name">Urubu-de-Cabeça-Vermelha</h3>
+            <span class="wildlife-card__latin">Cathartes aura</span>
+            <p class="wildlife-card__desc">Sobrevoa em círculos indicando o fim de uma batalha ou o rastro deixado por foras da lei.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="gallery section-paper" id="gallery">
       <div class="gallery__head">
-        <div class="section-mark reveal"><span>04</span><p>FAUNA & NOTAS DE CAMPO</p></div>
-        <h2 class="display reveal">A VIDA SELVAGEM<br><em>EM DETALHES 4K.</em></h2>
+        <div class="section-mark reveal"><span>05</span><p>FAUNA & NOTAS DE CAMPO</p></div>
+        <h2 class="display reveal">A VIDA SELVAGEM<br><em>EM DETALHES.</em></h2>
       </div>
 
       <div class="editorial-gallery">
         <button class="gallery-shot shot-a reveal" data-gallery="0">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/3/36/RDR_2_October_26_Delay_Screenshot_1.jpg/revision/latest" 
-            alt="The Heartlands — Planícies abertas e habitat dos Bisões Americanos em 4K" 
+            alt="The Heartlands — Planícies abertas e habitat dos Bisões Americanos" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -283,7 +481,7 @@
         <button class="gallery-shot shot-b reveal" data-gallery="1">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/b/b1/RDR_2_First_Look_6.jpg/revision/latest" 
-            alt="Roanoke Ridge — Arthur Morgan caçando na floresta de coníferas em 4K" 
+            alt="Roanoke Ridge — Arthur Morgan caçando na floresta de coníferas" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -292,13 +490,13 @@
           <span>02 / ROANOKE RIDGE · FLORESTA & CAÇA</span>
         </button>
         <div class="gallery-note reveal">
-          <strong>ECOSSISTEMA<br>VIVO EM 4K.</strong>
+          <strong>ECOSSISTEMA<br>VIVO.</strong>
           <p>Alcateias de lobos caçam em bando.<br>Águias planam nos desfiladeiros.<br>Ursos defendem seu território.</p>
         </div>
         <button class="gallery-shot shot-c reveal" data-gallery="2">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/f/fc/RDR_2_October_26_Delay_Screenshot_4.jpg/revision/latest" 
-            alt="The Grizzlies — Picos nevados e território dos ursos pardos e lobos em 4K" 
+            alt="The Grizzlies — Picos nevados e território dos ursos pardos e lobos" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -309,7 +507,7 @@
         <button class="gallery-shot shot-d reveal" data-gallery="3">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/8/89/RDR_2_First_Look_29.jpg/revision/latest" 
-            alt="Big Valley — Florestas exuberantes, rios e cavalos selvagens em 4K" 
+            alt="Big Valley — Florestas exuberantes, rios e cavalos selvagens" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -320,7 +518,7 @@
         <button class="gallery-shot shot-e reveal" data-gallery="4">
           <img 
             src="https://static.wikia.nocookie.net/reddeadredemption/images/3/3b/RDR_2_First_Look_8.jpg/revision/latest" 
-            alt="New Austin — Vida selvagem e cavalgadas no deserto em 4K" 
+            alt="New Austin — Vida selvagem e cavalgadas no deserto" 
             loading="lazy" 
             decoding="async" 
             width="1920" 
@@ -367,6 +565,7 @@
         <a href="#story">História</a>
         <a href="#characters">Personagens</a>
         <a href="#world">O Mundo</a>
+        <a href="#wildlife">Fauna Selvagem</a>
         <a href="#gallery">Galeria</a>
         <a href="fun.html" style="color: #ffd066;">Mural Zueira 🤠</a>
         <a href="comprar.html" target="_blank" rel="noopener noreferrer">Comprar Jogo ↗</a>

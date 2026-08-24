@@ -916,6 +916,241 @@ button {
   text-transform:uppercase;
 }
 
+/* =========================================================
+   COMPÊNDIO DA FAUNA & VIDA SELVAGEM
+   ========================================================= */
+
+.wildlife-section {
+  position: relative;
+  padding: 12vh 6vw 14vh;
+  background: #0d0a08;
+  color: white;
+  overflow: hidden;
+  border-top: 1px solid var(--line-light);
+}
+
+.wildlife__head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+}
+
+.wildlife__title-wrap {
+  margin-top: 10px;
+}
+
+.wildlife__lead {
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 14px;
+}
+
+/* Filtros de Categoria */
+.wildlife__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.wildlife-filter-btn {
+  padding: 8px 18px;
+  font-family: var(--typewriter);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all .3s var(--ease);
+}
+
+.wildlife-filter-btn:hover {
+  background: rgba(182, 29, 29, 0.2);
+  border-color: var(--red);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.wildlife-filter-btn.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+  box-shadow: 0 0 20px rgba(182, 29, 29, 0.45);
+}
+
+/* Grid da Fauna */
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-top: 45px;
+}
+
+/* Card Individual */
+.wildlife-card {
+  position: relative;
+  background: #16110e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+  cursor: pointer;
+}
+
+.wildlife-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(182, 29, 29, 0.25);
+  border-color: rgba(182, 29, 29, 0.6);
+}
+
+.wildlife-card.is-hidden {
+  display: none !important;
+}
+
+.wildlife-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #090706;
+  overflow: hidden;
+}
+
+.wildlife-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .7s var(--ease), filter .4s;
+  filter: contrast(1.05);
+}
+
+.wildlife-card:hover .wildlife-card__media img {
+  transform: scale(1.08);
+  filter: contrast(1.15) brightness(1.06);
+}
+
+.wildlife-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  pointer-events: none;
+}
+
+.wildlife-card:hover .wildlife-card__overlay {
+  opacity: 1;
+}
+
+.wildlife-card__zoom-icon {
+  font-family: var(--typewriter);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(182, 29, 29, 0.85);
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transform: translateY(10px);
+  transition: transform .3s var(--ease);
+}
+
+.wildlife-card:hover .wildlife-card__zoom-icon {
+  transform: translateY(0);
+}
+
+.wildlife-card__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 4px 8px;
+  font-family: var(--typewriter);
+  font-size: 8px;
+  font-weight: bold;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(14, 11, 9, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #efe7d6;
+  border-radius: 2px;
+}
+
+.wildlife-card__tag--legendary {
+  border-color: #ffd066;
+  color: #ffd066;
+  background: rgba(40, 26, 8, 0.9);
+  box-shadow: 0 0 12px rgba(255, 208, 102, 0.3);
+}
+
+.wildlife-card__tag--danger {
+  border-color: var(--red);
+  color: #ff6b6b;
+  background: rgba(40, 10, 10, 0.9);
+}
+
+.wildlife-card__tag--poison {
+  border-color: #4cd964;
+  color: #85e89d;
+  background: rgba(8, 35, 12, 0.9);
+}
+
+.wildlife-card__content {
+  padding: 16px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wildlife-card__habitat {
+  font-family: var(--typewriter);
+  font-size: 8px;
+  letter-spacing: .16em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.wildlife-card__name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.wildlife-card__latin {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+}
+
+.wildlife-card__desc {
+  font-family: var(--body);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
 .gallery { padding: 11vh 6vw 14vh; overflow:hidden; }
 .gallery__head {
   display:flex;
@@ -926,56 +1161,97 @@ button {
   margin:0 5vw 0 0;
 }
 .editorial-gallery {
-  position:relative;
-  min-height: clamp(1200px, 85vw, 1550px);
-  margin-top:8vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+  max-width: 1700px;
+  margin: 6vh auto 0;
+  position: relative;
 }
 .gallery-shot {
-  position:absolute;
-  display:block;
-  padding:0;
-  background:#15110e;
-  overflow:hidden;
-  border-radius: 2px;
+  position: relative;
+  display: block;
+  padding: 0;
+  background: #15110e;
+  overflow: hidden;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 .gallery-shot img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition:transform .7s var(--ease), filter .5s;
-  filter:sepia(.22) saturate(.8);
+  transition: transform .7s var(--ease), filter .5s;
+  filter: sepia(.15) saturate(.9) contrast(1.05);
   will-change: transform, filter;
 }
 .gallery-shot:hover img {
-  transform:scale(1.035);
-  filter:sepia(.1) saturate(1);
+  transform: scale(1.035);
+  filter: sepia(0) saturate(1.05) contrast(1.08);
 }
 .gallery-shot span {
-  display:block;
-  margin-top:9px;
-  text-align:left;
-  font:8px var(--typewriter);
-  letter-spacing:.16em;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(0deg, rgba(16, 13, 11, 0.92) 0%, transparent 100%);
+  color: #efe7d6;
+  text-align: left;
+  font: 8.5px var(--typewriter);
+  letter-spacing: .16em;
+  pointer-events: none;
 }
-.shot-a { width:48vw; height: clamp(400px, 30vw, 650px); left:0; top:20px; }
-.shot-b { width:20vw; height: clamp(260px, 19vw, 420px); right:5vw; top:130px; }
-.shot-c { width:37vw; height: clamp(360px, 28vw, 600px); right:0; top: clamp(520px, 38vw, 780px); }
-.shot-d { width:22vw; height: clamp(270px, 20vw, 440px); left:10vw; top: clamp(620px, 45vw, 920px); }
-.shot-e { width:27vw; height: clamp(260px, 19vw, 400px); left:36vw; top: clamp(880px, 62vw, 1280px); }
+
+/* Grid Placement de cada item editorial */
+.shot-a {
+  grid-column: span 7;
+  aspect-ratio: 16 / 10;
+  min-height: 380px;
+}
+.shot-b {
+  grid-column: span 5;
+  aspect-ratio: 16 / 10;
+  min-height: 380px;
+}
 .gallery-note {
-  position:absolute;
-  left:53vw;
-  top: clamp(400px, 30vw, 600px);
-  width:24vw;
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 20px;
+  background: rgba(16, 13, 11, 0.04);
+  border-left: 4px solid var(--red);
+  border-radius: 2px;
 }
 .gallery-note strong {
-  display:block;
-  font:700 clamp(42px,5vw,82px)/.82 var(--display);
+  display: block;
+  font: 700 clamp(36px, 4vw, 58px) / .88 var(--display);
+  color: var(--ink);
+  margin-bottom: 10px;
 }
 .gallery-note p {
-  font:15px/1.5 Georgia,serif;
-  color:#514b42;
+  font: 14px / 1.6 Georgia, serif;
+  color: #514b42;
+  margin: 0;
+}
+.shot-c {
+  grid-column: span 8;
+  aspect-ratio: 16 / 9;
+  min-height: 380px;
+}
+.shot-d {
+  grid-column: span 6;
+  aspect-ratio: 16 / 10;
+  min-height: 340px;
+}
+.shot-e {
+  grid-column: span 6;
+  aspect-ratio: 16 / 10;
+  min-height: 340px;
 }
 
 .trailer {
@@ -1387,7 +1663,8 @@ button {
   .character-stage { min-height: 900px; }
   .character-stage__info { width: 30vw; top: 15%; }
   .character-stage__image { object-fit: contain; object-position: center 15%; max-height: 90%; }
-  .editorial-gallery { min-height: 1400px; max-width: 2400px; margin-inline: auto; }
+  .editorial-gallery { max-width: 2400px; gap: 36px; margin-inline: auto; }
+  .wildlife-grid { grid-template-columns: repeat(5, 1fr); gap: 28px; max-width: 2400px; margin-inline: auto; }
   .world-panel { min-height: 75vh; }
   .trailer { min-height: 75vh; }
   .trailer__bg { object-fit: contain; object-position: center 25%; }
@@ -1476,6 +1753,7 @@ button {
   .character-stage__info { width: 38vw; }
   .world__intro { grid-template-columns: .7fr 2fr; }
   .world__lead { grid-column: 2; }
+  .wildlife-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 }
 
 /* --- 5. Tablets e Smartphones (max-width: 900px) --- */
@@ -1750,6 +2028,12 @@ button {
   }
   .world-stats div { justify-content: space-between; }
 
+  /* Fauna Mobile */
+  .wildlife-section { padding: 50px 20px 60px; }
+  .wildlife-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  .wildlife-card__name { font-size: 19px; }
+  .wildlife-card__desc { font-size: 11px; }
+
   /* Galeria Mobile */
   .gallery { padding: 50px 20px 60px; }
   .gallery__head { display: block; }
@@ -1863,6 +2147,10 @@ button {
   .characters { padding-top: 35px; }
   .characters__head { padding: 0 14px 20px; }
   .world__intro { padding: 40px 14px 20px; }
+  .wildlife-section { padding: 40px 14px 45px; }
+  .wildlife-grid { grid-template-columns: 1fr; gap: 14px; }
+  .wildlife__filters { gap: 6px; }
+  .wildlife-filter-btn { padding: 6px 12px; font-size: 9.5px; }
   .gallery { padding: 40px 14px 45px; }
   .footer { padding: 45px 14px 24px; }
 }
