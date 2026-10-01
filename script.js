@@ -158,7 +158,7 @@
       ghost: "SADIE",
       role: "A CAÇADORA",
       description: "Destemida, implacável e indomável. Após perder tudo, transformou o luto em fúria e a sobrevivência em uma nova e feroz forma de liberdade.",
-      image: "https://scontent-gru1-1.xx.fbcdn.net/v/t39.30808-6/608845844_1266555941951004_3976551202829362885_n.jpg?stp=dst-jpg_tt6&cstp=mx1738x2048&ctp=s1738x2048&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=-y714_pVSU8Q7kNvwGWxDfb&_nc_oc=AdqVq_OqR05hohx9rOvPZtoXo_tdQPAVS-MLWCCdE-ks0t0_UNCSbwC0ucqkDlP7fkFePWKQObQ38agueuUxInnr&_nc_zt=23&_nc_ht=scontent-gru1-1.xx&_nc_gid=BC3CBhqmC3wbc_nNkmDtYA&_nc_ss=7b289&oh=00_AQHu-eHnL4p7esP284FkgTI_xN53O9R9aD4kOJ7LdpZ87A&oe=6A8CF8DE",
+      image: "img/sadie.jpg",
       alt: "Sadie Adler"
     },
     {
@@ -166,7 +166,7 @@
       ghost: "HOSEA",
       role: "A CONSCIÊNCIA",
       description: "O mais experiente companheiro de Dutch. Um mestre da oratória e estrategista lúcido, capaz de enxergar o colapso do bando antes de todos os outros.",
-      image: "https://scontent-gru1-2.cdninstagram.com/v/t51.82787-15/639475501_18562364992029885_7075735183521946343_n.webp?_nc_cat=108&ig_cache_key=MzgzNTIwMjAzOTM3OTE1MDIzOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=60wQVestt-oQ7kNvwGrxak-&_nc_oc=Adox8UngDirb5_CqOcqpDmrmK1CdhDGTLQnnqbOFmACNv3ai-rCCTeHJP-GCX6B78UbSwfXW4Xui2QT0s8hytGgS&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru1-2.cdninstagram.com&_nc_gid=hQGgjOIRCKoLa4rp8SKCcA&_nc_ss=7a22e&oh=00_AQHkA3_jNAcGVDh1JgGYBOQvGBCNrTmGViSD0efUoxkYIQ&oe=6A8D0F4B",
+      image: "img/hosea.jpg",
       alt: "Hosea Matthews"
     }
   ];
@@ -259,7 +259,7 @@
   ---------------------------- */
   const videoModal = $("#videoModal");
   const trailerFrame = $("#trailerFrame");
-  const trailerURL = "https://www.youtube.cohttps://www.youtube.com/watch?v=eaW0tYpxyp0m/embed/gmA6MrX81z4?autoplay=1&rel=0";
+  const trailerURL = "https://www.youtube.com/embed/gmA6MrX81z4?autoplay=1&rel=0";
 
   const openTrailer = () => {
     trailerFrame.src = trailerURL;

@@ -18,6 +18,26 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      cursor: default;
+    }
+    .checkout-page a,
+    .checkout-page button,
+    .checkout-page .edition-card,
+    .checkout-page .platform-card,
+    .checkout-page .payment-option,
+    .checkout-page .radio-mark,
+    .checkout-page .back-link,
+    .checkout-page .brand {
+      cursor: pointer;
+    }
+    .checkout-page input[type="text"],
+    .checkout-page input[type="email"] {
+      cursor: text;
+    }
+    .checkout-page button:disabled,
+    .checkout-page input:disabled,
+    .checkout-page [disabled] {
+      cursor: not-allowed;
     }
     .checkout-header {
       padding: 24px 6vw;
@@ -268,6 +288,69 @@
       font-weight: 700;
     }
 
+    /* Seção de Promoções e Descontos */
+    .promo-card {
+      background: #14110e;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 32px;
+      margin-bottom: 28px;
+    }
+    .promo-question {
+      margin: 0 0 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.02em;
+    }
+    .promo-form {
+      display: flex;
+      gap: 10px;
+    }
+    .promo-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 12px;
+      font-family: inherit;
+      letter-spacing: 0.05em;
+      transition: border-color 0.3s;
+    }
+    .promo-form input:focus {
+      outline: none;
+      border-color: var(--red);
+    }
+    .promo-form button {
+      background: var(--red);
+      border: none;
+      color: #fff;
+      padding: 0 24px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      white-space: nowrap;
+    }
+    .promo-form button:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+    .promo-feedback {
+      margin-top: 12px;
+      color: #2bd880;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: none;
+    }
+    .promo-feedback.is-visible {
+      display: block;
+    }
+
     /* Resumo Lateral */
     .checkout-summary {
       background: #14110e;
@@ -502,6 +585,18 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 640px) {
+      .promo-card {
+        padding: 20px;
+      }
+      .promo-form {
+        flex-direction: column;
+      }
+      .promo-form button {
+        padding: 12px 20px;
+      }
+    }
   </style>
 </head>
 <body class="checkout-page">
@@ -615,6 +710,16 @@
             </div>
           </div>
         </div>
+
+        <!-- Seção de Cadastro de Promoções -->
+        <div class="promo-card">
+          <p class="promo-question">Deseja receber informações de promoções?</p>
+          <form class="promo-form" id="promoForm" novalidate>
+            <input type="email" id="promoEmail" placeholder="Digite seu e-mail" required />
+            <button type="submit" id="promoSubmitBtn">Cadastrar</button>
+          </form>
+          <div class="promo-feedback" id="promoFeedback">Email cadastrado para receber informações e descontos.</div>
+        </div>
       </div>
 
       <!-- Coluna Lateral de Resumo -->
@@ -726,12 +831,18 @@
     </div>
   </div>
 
+  <!-- Toast de Notificação -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <strong>Email cadastrado para receber informações e descontos.</strong>
+    <span>Você receberá novidades e ofertas exclusivas no seu e-mail.</span>
+  </div>
+
   <footer class="footer" style="padding-top:40px;">
     <div class="footer__bottom" style="padding-top:0;">
       <div>
         <span class="footer__label">LOJA</span>
         <a href="index.html">Hotsite Principal</a>
-        <a href="comprar.html">Edições</a>
+        <a href="buy.html">Edições</a>
         <a href="https://support.rockstargames.com" target="_blank" rel="noopener noreferrer">Suporte</a>
       </div>
       <div>
@@ -845,6 +956,39 @@
       });
       successModal?.addEventListener("click", e => {
         if (e.target === successModal) successModal.classList.remove("is-open");
+      });
+
+      /* ---------------------------
+         Cadastro de Promoções e Descontos
+      ---------------------------- */
+      const promoForm = document.getElementById("promoForm");
+      const promoEmail = document.getElementById("promoEmail");
+      const promoFeedback = document.getElementById("promoFeedback");
+      const toast = document.getElementById("toast");
+      let toastTimer;
+
+      promoForm?.addEventListener("submit", e => {
+        e.preventDefault();
+        const emailVal = promoEmail.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailVal || !emailRegex.test(emailVal)) {
+          promoEmail.focus();
+          promoEmail.style.borderColor = "var(--red)";
+          return;
+        }
+
+        promoEmail.style.borderColor = "rgba(255,255,255,0.15)";
+        promoFeedback.classList.add("is-visible");
+        promoEmail.value = "";
+
+        if (toast) {
+          clearTimeout(toastTimer);
+          toast.classList.add("is-visible");
+          toastTimer = setTimeout(() => {
+            toast.classList.remove("is-visible");
+          }, 3500);
+        }
       });
 
       updateSummary();
