@@ -759,6 +759,240 @@ button {
   text-transform:uppercase;
 }
 
+/* ==========================================================================
+   COMPÊNDIO DA FAUNA & ANIMAIS SELVAGENS
+   ========================================================================== */
+.wildlife-section {
+  position: relative;
+  padding: 12vh 6vw 14vh;
+  background: #0d0a08;
+  color: white;
+  overflow: hidden;
+  border-top: 1px solid var(--line-light);
+}
+
+.wildlife__head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+}
+
+.wildlife__title-wrap {
+  margin-top: 10px;
+}
+
+.wildlife__lead {
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 14px;
+}
+
+/* Filtros de Categoria */
+.wildlife__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.wildlife-filter-btn {
+  padding: 8px 18px;
+  font-family: var(--typewriter);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all .3s var(--ease);
+}
+
+.wildlife-filter-btn:hover {
+  background: rgba(182, 29, 29, 0.2);
+  border-color: var(--red);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.wildlife-filter-btn.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+  box-shadow: 0 0 20px rgba(182, 29, 29, 0.45);
+}
+
+/* Grid da Fauna */
+.wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-top: 45px;
+}
+
+/* Card Individual */
+.wildlife-card {
+  position: relative;
+  background: #16110e;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .3s;
+  cursor: pointer;
+}
+
+.wildlife-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(182, 29, 29, 0.25);
+  border-color: rgba(182, 29, 29, 0.6);
+}
+
+.wildlife-card.is-hidden {
+  display: none !important;
+}
+
+.wildlife-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #090706;
+  overflow: hidden;
+}
+
+.wildlife-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .7s var(--ease), filter .4s;
+  filter: contrast(1.05);
+}
+
+.wildlife-card:hover .wildlife-card__media img {
+  transform: scale(1.08);
+  filter: contrast(1.15) brightness(1.06);
+}
+
+.wildlife-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  pointer-events: none;
+}
+
+.wildlife-card:hover .wildlife-card__overlay {
+  opacity: 1;
+}
+
+.wildlife-card__zoom-icon {
+  font-family: var(--typewriter);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: white;
+  background: rgba(182, 29, 29, 0.85);
+  padding: 6px 14px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transform: translateY(10px);
+  transition: transform .3s var(--ease);
+}
+
+.wildlife-card:hover .wildlife-card__zoom-icon {
+  transform: translateY(0);
+}
+
+.wildlife-card__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 4px 8px;
+  font-family: var(--typewriter);
+  font-size: 8px;
+  font-weight: bold;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(14, 11, 9, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #efe7d6;
+  border-radius: 2px;
+}
+
+.wildlife-card__tag--legendary {
+  border-color: #ffd066;
+  color: #ffd066;
+  background: rgba(40, 26, 8, 0.9);
+  box-shadow: 0 0 12px rgba(255, 208, 102, 0.3);
+}
+
+.wildlife-card__tag--danger {
+  border-color: var(--red);
+  color: #ff6b6b;
+  background: rgba(40, 10, 10, 0.9);
+}
+
+.wildlife-card__tag--poison {
+  border-color: #4cd964;
+  color: #85e89d;
+  background: rgba(8, 35, 12, 0.9);
+}
+
+.wildlife-card__content {
+  padding: 16px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wildlife-card__habitat {
+  font-family: var(--typewriter);
+  font-size: 8px;
+  letter-spacing: .16em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.wildlife-card__name {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 2px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.wildlife-card__latin {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 8px;
+}
+
+.wildlife-card__desc {
+  font-family: var(--body);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
 .gallery { padding: 11vh 6vw 14vh; overflow:hidden; }
 .gallery__head {
   display:flex;
@@ -1211,6 +1445,7 @@ button {
   .character-stage__info { width:38vw; }
   .world__intro { grid-template-columns:.7fr 2fr; }
   .world__lead { grid-column:2; }
+  .wildlife-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 }
 
 @media (max-width: 780px) {
@@ -1346,6 +1581,11 @@ button {
   }
   .world-stats div { justify-content:space-between; }
 
+  .wildlife-section { padding: 50px 20px 60px; }
+  .wildlife-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  .wildlife-card__name { font-size: 19px; }
+  .wildlife-card__desc { font-size: 11px; }
+
   .gallery { padding:8vh 20px 10vh; }
   .gallery__head { display:block; }
   .gallery__head .display { margin-top:6vh; }
@@ -1404,6 +1644,10 @@ button {
   .hero__stamp { display:none; }
   .story__composition { grid-template-columns:1fr; }
   .story__image--secondary,.story__pullquote { grid-column:1; }
+  .wildlife-section { padding: 40px 14px 45px; }
+  .wildlife-grid { grid-template-columns: 1fr; gap: 14px; }
+  .wildlife__filters { gap: 6px; }
+  .wildlife-filter-btn { padding: 6px 12px; font-size: 9.5px; }
   .gallery-note { grid-column:1/-1; }
   .gallery-shot { grid-column:1/-1; }
   .gallery-shot img { height:44vh; }
